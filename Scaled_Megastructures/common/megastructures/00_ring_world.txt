@@ -79,8 +79,12 @@ ring_world_1 = {
 		}
 		
 		custom_tooltip = {
-			fail_text = "requires_no_black_hole"
-			NOT = { is_star_class = sc_black_hole }
+			fail_text = "requires_no_black_hole_neutron_star_pulsar"
+			NOT = {
+				is_star_class = sc_black_hole
+				is_star_class = sc_neutron_star
+				is_star_class = sc_pulsar
+			}
 		}
 	}
 	
