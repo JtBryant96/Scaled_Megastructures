@@ -1,0 +1,445 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 200
+@b_cost = 80000
+@a_cost = 16000
+@f_cost = 6000
+@g_cost = 4000
+@k_cost = 2000
+
+@base_output = 4
+@b_output = 1600
+@a_output = 320
+@f_output = 120
+@g_output = 80
+@k_output = 40
+
+@base_upkeep = 2
+@b_upkeep = 800
+@a_upkeep = 160
+@f_upkeep = 60
+@g_upkeep = 40
+@k_upkeep = 20
+
+@base_unity = 2
+@b_unity = 2
+@a_unity = 2
+@f_unity = 2
+@g_unity = 2
+@k_unity = 2
+
+building_paradise_dome = {
+	icon = "building_paradise_dome"
+	base_buildtime = @base_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	produced_resources = {
+		food = @base_output
+		unity = @base_unity
+	}
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			NOT = {
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_paradise_dome_b = {
+	icon = "building_paradise_dome"
+	base_buildtime = @b_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	produced_resources = {
+		food = @b_output
+		unity = @b_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_paradise_dome_a = {
+	icon = "building_paradise_dome"
+	base_buildtime = @a_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	produced_resources = {
+		food = @a_output
+		unity = @a_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_paradise_dome_f = {
+	icon = "building_paradise_dome"
+	base_buildtime = @f_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	produced_resources = {
+		food = @f_output
+		unity = @f_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_paradise_dome_g = {
+	icon = "building_paradise_dome"
+	base_buildtime = @g_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	produced_resources = {
+		food = @g_output
+		unity = @g_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_paradise_dome_k = {
+	icon = "building_paradise_dome"
+	base_buildtime = @k_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	produced_resources = {
+		food = @k_output
+		unity = @k_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_non_swapped_tradition = tr_harmony_utopian_dream
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_non_swapped_tradition = tr_harmony_utopian_dream }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

@@ -1,0 +1,629 @@
+@base_time_1 = 360
+@base_time_2 = 180
+@b_time_1 = 144000
+@b_time_2 = 72000
+@a_time_1 = 28800
+@a_time_2 = 14400
+@f_time_1 = 10800
+@f_time_2 = 5400
+@g_time_1 = 7200
+@g_time_2 = 3600
+@k_time_1 = 3600
+@k_time_2 = 1800
+
+@base_cost_1 = 150
+@base_cost_2 = 200
+@b_cost_1 = 60000
+@b_cost_2 = 80000
+@a_cost_1 = 12000
+@a_cost_2 = 16000
+@f_cost_1 = 4500
+@f_cost_2 = 6000
+@g_cost_1 = 3000
+@g_cost_2 = 4000
+@k_cost_1 = 1500
+@k_cost_2 = 2000
+
+@base_mult_l	= 0.1
+@base_mult_g	= 0.1
+@b_mult_l		= 40.0
+@b_mult_g		= 40.0
+@a_mult_l		= 8.0
+@a_mult_g		= 8.0
+@f_mult_l		= 3.0
+@f_mult_g		= 3.0
+@g_mult_l		= 2.0
+@g_mult_g		= 2.0
+@k_mult_l		= 1.0
+@k_mult_g		= 1.0
+
+@base_upkeep_1 = 2.5
+@base_upkeep_2 = 5
+@b_upkeep_1 = 1000
+@b_upkeep_2 = 2000
+@a_upkeep_1 = 200
+@a_upkeep_2 = 400
+@f_upkeep_1 = 75
+@f_upkeep_2 = 150
+@g_upkeep_1 = 50
+@g_upkeep_2 = 100
+@k_upkeep_1 = 25
+@k_upkeep_2 = 50
+
+@base_sci_1 = 2
+@base_sci_2 = 4
+@b_sci_1 = 800
+@b_sci_2 = 1600
+@a_sci_1 = 160
+@a_sci_2 = 320
+@f_sci_1 = 60
+@f_sci_2 = 120
+@g_sci_1 = 40
+@g_sci_2 = 80
+@k_sci_1 = 20
+@k_sci_2 = 40
+
+@base_storage = 1000
+@b_storage = 400000
+@a_storage = 80000
+@f_storage = 30000
+@g_storage = 20000
+@k_storage = 10000
+
+@natural_equilibrium_happiness = 0.02
+
+building_localstructure_base = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	potential = {
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @base_sci_1
+	}
+	
+	planet_modifier = {
+		planet_building_build_speed_mult = @base_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_base
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_base = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @base_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_2_2
+	}
+	
+	potential = {
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @base_sci_2
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+		minerals = @base_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @base_mult_g_g
+		planet_building_build_speed_mult = @base_mult_g_g
+		max_minerals = @base_storage
+		max_energy = @base_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}	
+}
+
+building_localstructure_b = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @b_sci_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		planet_building_build_speed_mult = @b_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_b
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_b = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @b_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @sci_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_2
+		minerals = @b_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @b_mult_g
+		planet_building_build_speed_mult = @b_mult_g
+		max_minerals = @b_storage
+		max_energy = @b_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+}
+
+building_localstructure_a = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @a_sci_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		planet_building_build_speed_mult = @a_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_a
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_a = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @a_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @a_sci_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	required_resources = {
+		energy = @a_upkeep_2
+		minerals = @a_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @a_mult_g
+		planet_building_build_speed_mult = @a_mult_g
+		max_minerals = @a_storage
+		max_energy = @a_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+	
+}
+
+building_localstructure_f = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @f_sci_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		planet_building_build_speed_mult = @f_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_f
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_f = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @f_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @f_sci_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_2
+		minerals = @f_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @f_mult_g
+		planet_building_build_speed_mult = @f_mult_g
+		max_minerals = @f_storage
+		max_energy = @f_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+}
+
+building_localstructure_g = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @g_sci_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		planet_building_build_speed_mult = @g_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_g
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_g = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @g_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @g_sci_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_2
+		minerals = @g_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @g_mult_g
+		planet_building_build_speed_mult = @g_mult_g
+		max_minerals = @g_storage
+		max_energy = @g_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+}
+
+building_localstructure_k = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	produced_resources = {
+		engineering_research = @k_sci_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		planet_building_build_speed_mult = @k_mult_l
+	}
+	
+	prerequisites = {
+		"tech_localstructure"
+	}
+	
+	upgrades = {
+		building_megastructure_k
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_megastructure_k = {
+	icon = "building_garanthiumworks"
+	base_buildtime = @k_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	produced_resources = {
+		engineering_research = @k_sci_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_2
+		minerals = @k_upkeep_2
+	}
+
+	country_modifier = {
+		megastructure_build_speed_mult = @k_mult_g
+		planet_building_build_speed_mult = @k_mult_g
+		max_minerals = @k_storage
+		max_energy = @k_storage
+	}
+	
+	prerequisites = {
+		"tech_mega_engineering"
+	}
+}

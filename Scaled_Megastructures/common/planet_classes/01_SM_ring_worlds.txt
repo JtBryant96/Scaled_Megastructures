@@ -1,0 +1,272 @@
+# Star glow from sun is set under atmosphere in   00_planet_classes
+# Star surface is set in worldgfx file for each star
+# Effects are set in particle effect for each star
+# New planets also need planet tiles (game\gfx\interface\icons\tile_backgrounds)
+# New planets need surface background (game\gfx\portraits\environments)
+
+### EXAMPLE:
+#pc_tropical = {
+#	entity = "gaia_planet"
+#	entity_scale = 8.0
+#
+#	picture = pc_tropical	# Use tropical portrait art instead of gaia
+#	
+#	atmosphere_color 		= hsv { 0.58	0.3 0.7 }
+#	atmosphere_intensity 	= 1.0
+#	atmosphere_width 		= 0.5
+#	
+#	city_color_lut = "gfx/portraits/misc/colorcorrection_neutral.tga"
+#
+#	min_distance_from_sun = 60
+#	max_distance_from_sun = 80
+#	spawn_odds = 10
+#	
+#	extra_orbit_size = 0
+#	extra_planet_count = 0
+#	
+#	chance_of_ring = 0.2
+#
+#	planet_size = { min = @habitable_planet_min_size max = @habitable_planet_max_size }
+#	moon_size = { min = @habitable_moon_min_size max = @habitable_moon_max_size }
+#	
+#	colonizable = yes
+#	#colonization_tech = { "tech_tropical_colonization@1" }
+#}
+###
+
+
+# Planet Variables
+
+@planet_standard_scale = 11
+@habitable_planet_max_size = 25
+@habitable_planet_min_size = 12
+@habitable_moon_max_size = 15
+@habitable_moon_min_size = 10
+@habitable_min_distance = 60
+@habitable_max_distance = 100
+@habitable_spawn_odds = 0.5
+
+pc_ringworld_habitable_b = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		pop_growth_req = 10000
+		pop_food_req_mult = 399
+		pop_consumer_goods_mult = 399
+		buildable_robot_pop_1_build_cost_mult = 399
+		buildable_robot_pop_2_build_cost_mult = 399
+		buildable_robot_pop_3_build_cost_mult = 399
+		buildable_robot_pop_4_build_cost_mult = 399
+		buildable_modded_robot_pop_build_cost_mult = 399
+		buildable_machine_pop_build_cost_mult = 399
+		pop_robot_maintenance_mult = 399
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}
+
+pc_ringworld_habitable_a = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		pop_growth_req = 2000
+		pop_food_req_mult = 79
+		pop_consumer_goods_mult = 79
+		buildable_robot_pop_1_build_cost_mult = 79
+		buildable_robot_pop_2_build_cost_mult = 79
+		buildable_robot_pop_3_build_cost_mult = 79
+		buildable_robot_pop_4_build_cost_mult = 79
+		buildable_modded_robot_pop_build_cost_mult = 79
+		buildable_machine_pop_build_cost_mult = 79
+		pop_robot_maintenance_mult = 79
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}
+
+pc_ringworld_habitable_f = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		pop_growth_req = 750
+		pop_food_req_mult = 29
+		pop_consumer_goods_mult = 29
+		buildable_robot_pop_1_build_cost_mult = 29
+		buildable_robot_pop_2_build_cost_mult = 29
+		buildable_robot_pop_3_build_cost_mult = 29
+		buildable_robot_pop_4_build_cost_mult = 29
+		buildable_modded_robot_pop_build_cost_mult = 29
+		buildable_machine_pop_build_cost_mult = 29
+		pop_robot_maintenance_mult = 29
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}
+
+pc_ringworld_habitable_g = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		pop_growth_req = 500
+		pop_food_req_mult = 19
+		pop_consumer_goods_mult = 19
+		buildable_robot_pop_1_build_cost_mult = 19
+		buildable_robot_pop_2_build_cost_mult = 19
+		buildable_robot_pop_3_build_cost_mult = 19
+		buildable_robot_pop_4_build_cost_mult = 19
+		buildable_modded_robot_pop_build_cost_mult = 19
+		buildable_machine_pop_build_cost_mult = 19
+		pop_robot_maintenance_mult = 19
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}
+
+pc_ringworld_habitable_k = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		pop_growth_req = 250
+		pop_food_req_mult = 9
+		pop_consumer_goods_mult = 9
+		buildable_robot_pop_1_build_cost_mult = 9
+		buildable_robot_pop_2_build_cost_mult = 9
+		buildable_robot_pop_3_build_cost_mult = 9
+		buildable_robot_pop_4_build_cost_mult = 9
+		buildable_modded_robot_pop_build_cost_mult = 9
+		buildable_machine_pop_build_cost_mult = 9
+		pop_robot_maintenance_mult = 9
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}
+
+pc_ringworld_habitable_m = {
+	ringworld = yes
+	entity = "ringworld_habitable_entity"
+	picture = pc_ringworld
+	tile_set = pc_gaia
+	outliner_planet_type = special
+	icon_frame = 21
+	entity_scale = 1.0
+	enable_tilt = no
+	fixed_entity_scale = yes
+	atmosphere_color 		= hsv { 0.0 0.0 1.0 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+	show_city = yes
+	city_color_lut = "gfx/portraits/misc/colorcorrection_continental.dds"
+	modifier = {
+		
+	}
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	chance_of_ring = 0.0
+	planet_size = 25
+	moon_size = 1
+	colonizable = yes
+	ideal = yes
+	starting_planet = no
+	orbit_lines = no
+	has_colonization_influence_cost = no		# applies when within own borders
+}

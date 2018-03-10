@@ -1,0 +1,360 @@
+@base_time = 180
+@b_time = 72000
+@a_time = 14400
+@f_time = 5400
+@g_time = 3600
+@k_time = 1800
+
+@base_cost = 120
+@b_cost = 48000
+@a_cost = 9600
+@f_cost = 3600
+@g_cost = 2400
+@k_cost = 1200
+
+@base_output = 10
+@b_output = 4000
+@a_output = 800
+@f_output = 300
+@g_output = 200
+@k_output = 100
+
+@base_upkeep = 3
+@b_upkeep = 1200
+@a_upkeep = 240
+@f_upkeep = 90
+@g_upkeep = 60
+@k_upkeep = 30
+
+building_akx_worm_3 = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @base_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @base_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+building_akx_worm_3_b = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @b_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @b_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+building_akx_worm_3_a = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @a_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @a_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+building_akx_worm_3_f = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @f_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @f_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+building_akx_worm_3_g = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @g_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @g_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+building_akx_worm_3_k = {
+	icon = "building_akx_worm_3"
+	base_buildtime = @k_time
+	is_listed = yes
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}	
+	
+	allow = {
+		
+	}
+
+	produced_resources = {
+		physics_research = @k_output
+	}
+
+	planet_modifier  = {
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_3"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

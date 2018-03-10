@@ -1,0 +1,2982 @@
+@base_time_1 = 180
+@base_time_2 = 270
+@base_time_3 = 360
+@base_time_4 = 720
+@b_time_1 = 72000
+@b_time_2 = 108000
+@b_time_3 = 144000
+@b_time_4 = 288000
+@a_time_1 = 14400
+@a_time_2 = 21600
+@a_time_3 = 28800
+@a_time_4 = 57600
+@f_time_1 = 5400
+@f_time_2 = 8100
+@f_time_3 = 10800
+@f_time_4 = 21600
+@g_time_1 = 3600
+@g_time_2 = 5400
+@g_time_3 = 7200
+@g_time_4 = 14400
+@k_time_1 = 1800
+@k_time_2 = 2700
+@k_time_3 = 3600
+@k_time_4 = 7200
+
+@base_cost_1 = 100
+@base_cost_2 = 200
+@base_cost_3 = 350
+@base_cost_4 = 500
+@b_cost_1 = 40000
+@b_cost_2 = 80000
+@b_cost_3 = 140000
+@b_cost_4 = 200000
+@a_cost_1 = 8000
+@a_cost_2 = 16000
+@a_cost_3 = 28000
+@a_cost_4 = 40000
+@f_cost_1 = 3000
+@f_cost_2 = 6000
+@f_cost_3 = 10500
+@f_cost_4 = 15000
+@g_cost_1 = 2000
+@g_cost_2 = 4000
+@g_cost_3 = 7000
+@g_cost_4 = 10000
+@k_cost_1 = 1000
+@k_cost_2 = 2000
+@k_cost_3 = 3500
+@k_cost_4 = 5000
+
+@base_unity_1 = 2
+@base_unity_2 = 4
+@base_unity_3 = 6
+@base_unity_4 = 10
+@b_unity_1 = 800
+@b_unity_2 = 1600
+@b_unity_3 = 2400
+@b_unity_4 = 4000
+@a_unity_1 = 160
+@a_unity_2 = 320
+@a_unity_3 = 480
+@a_unity_4 = 800
+@f_unity_1 = 60
+@f_unity_2 = 120
+@f_unity_3 = 180
+@f_unity_4 = 300
+@g_unity_1 = 40
+@g_unity_2 = 800
+@g_unity_3 = 120
+@g_unity_4 = 200
+@k_unity_1 = 20
+@k_unity_2 = 40
+@k_unity_3 = 60
+@k_unity_4 = 100
+
+@base_upkeep_1 = 1
+@base_upkeep_2 = 2
+@base_upkeep_3 = 3
+@base_upkeep_4 = 4
+@b_upkeep_1 = 400
+@b_upkeep_2 = 800
+@b_upkeep_3 = 1200
+@b_upkeep_4 = 1600
+@a_upkeep_1 = 80
+@a_upkeep_2 = 160
+@a_upkeep_3 = 240
+@a_upkeep_4 = 320
+@f_upkeep_1 = 30
+@f_upkeep_2 = 60
+@f_upkeep_3 = 90
+@f_upkeep_4 = 120
+@g_upkeep_1 = 20
+@g_upkeep_2 = 40
+@g_upkeep_3 = 60
+@g_upkeep_4 = 80
+@k_upkeep_1 = 10
+@k_upkeep_2 = 20
+@k_upkeep_3 = 30
+@k_upkeep_4 = 40
+
+######################################################### BASE ###################################################################################################
+building_autochthon_monument = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @base_unity_1
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site = {
+	icon = "building_heritage_site"
+	base_buildtime = @base_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	produced_resources = {
+		unity = @base_unity_2
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @base_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	produced_resources = {
+		unity = @base_unity_3
+	}
+	
+	required_resources = {
+		energy = @base_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @base_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	produced_resources = {
+		unity = @base_unity_4
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node = {
+	icon = "building_uplink_node"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @base_unity_1
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction = {
+	icon = "building_network_junction"
+	base_buildtime = @base_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	produced_resources = {
+		unity = @base_unity_2
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux = {
+	icon = "building_system_conflux"
+	base_buildtime = @base_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	produced_resources = {
+		unity = @base_unity_3
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub = {
+	icon = "building_alpha_hub"
+	base_buildtime = @base_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	produced_resources = {
+		unity = @base_unity_4
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_autochthon_monument_b = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @b_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site_b 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site_b = {
+	icon = "building_heritage_site"
+	base_buildtime = @b_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	produced_resources = {
+		unity = @b_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum_b 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum_b = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @b_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_3
+	}
+	
+	produced_resources = {
+		unity = @b_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault_b 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault_b = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @b_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost_4
+	}
+	
+	produced_resources = {
+		unity = @b_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node_b = {
+	icon = "building_uplink_node"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @b_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction_b 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction_b = {
+	icon = "building_network_junction"
+	base_buildtime = @b_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	produced_resources = {
+		unity = @b_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux_b 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux_b = {
+	icon = "building_system_conflux"
+	base_buildtime = @b_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_3
+	}
+	
+	produced_resources = {
+		unity = @b_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub_b 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub_b = {
+	icon = "building_alpha_hub"
+	base_buildtime = @b_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost_4
+	}
+	
+	produced_resources = {
+		unity = @b_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+
+######################################################### CLASS A ################################################################################################
+building_autochthon_monument_a = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @a_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site_a 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site_a = {
+	icon = "building_heritage_site"
+	base_buildtime = @a_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	produced_resources = {
+		unity = @a_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum_a 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum_a = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @a_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_3
+	}
+	
+	produced_resources = {
+		unity = @a_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault_a 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault_a = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @a_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost_4
+	}
+	
+	produced_resources = {
+		unity = @a_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node_a = {
+	icon = "building_uplink_node"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @a_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction_a 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction_a = {
+	icon = "building_network_junction"
+	base_buildtime = @a_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	produced_resources = {
+		unity = @a_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux_a 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux_a = {
+	icon = "building_system_conflux"
+	base_buildtime = @a_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_3
+	}
+	
+	produced_resources = {
+		unity = @a_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub_a 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub_a = {
+	icon = "building_alpha_hub"
+	base_buildtime = @a_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost_4
+	}
+	
+	produced_resources = {
+		unity = @a_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+
+######################################################### CLASS F ################################################################################################
+building_autochthon_monument_f = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @f_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site_f 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site_f = {
+	icon = "building_heritage_site"
+	base_buildtime = @f_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	produced_resources = {
+		unity = @f_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum_f 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum_f = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @f_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_3
+	}
+	
+	produced_resources = {
+		unity = @f_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault_f 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault_f = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @f_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost_4
+	}
+	
+	produced_resources = {
+		unity = @f_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node_f = {
+	icon = "building_uplink_node"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @f_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction_f 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction_f = {
+	icon = "building_network_junction"
+	base_buildtime = @f_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	produced_resources = {
+		unity = @f_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux_f 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux_f = {
+	icon = "building_system_conflux"
+	base_buildtime = @f_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_3
+	}
+	
+	produced_resources = {
+		unity = @f_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub_f 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub_f = {
+	icon = "building_alpha_hub"
+	base_buildtime = @f_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost_4
+	}
+	
+	produced_resources = {
+		unity = @f_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+
+######################################################### CLASS G ################################################################################################
+building_autochthon_monument_g = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @g_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site_g 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site_g = {
+	icon = "building_heritage_site"
+	base_buildtime = @g_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	produced_resources = {
+		unity = @g_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum_g 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum_g = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @g_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_3
+	}
+	
+	produced_resources = {
+		unity = @g_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault_g 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault_g = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @g_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost_4
+	}
+	
+	produced_resources = {
+		unity = @g_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node_g = {
+	icon = "building_uplink_node"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @g_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction_g 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction_g = {
+	icon = "building_network_junction"
+	base_buildtime = @g_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	produced_resources = {
+		unity = @g_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux_g 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux_g = {
+	icon = "building_system_conflux"
+	base_buildtime = @g_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_3
+	}
+	
+	produced_resources = {
+		unity = @g_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub_g 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub_g = {
+	icon = "building_alpha_hub"
+	base_buildtime = @g_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost_4
+	}
+	
+	produced_resources = {
+		unity = @g_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+
+######################################################### CLASS K ################################################################################################
+building_autochthon_monument_k = {
+	icon = "building_autochthon_monument"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+			NOT = {
+				has_building = building_temple
+				has_building = building_holotemple				
+				has_building = building_citadel_of_faith
+				has_building = building_sacred_nexus
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	produced_resources = {
+		unity = @k_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_heritage_site_k 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}	
+}
+
+building_heritage_site_k = {
+	icon = "building_heritage_site"
+	base_buildtime = @k_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	produced_resources = {
+		unity = @k_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_hypercomms_forum_k 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_hypercomms_forum_k = {
+	icon = "building_hypercomms_forum"
+	base_buildtime = @k_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_3
+	}
+	
+	produced_resources = {
+		unity = @k_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_autocurating_vault_k 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_autocurating_vault_k = {
+	icon = "building_autocurating_vault"
+	base_buildtime = @k_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost_4
+	}
+	
+	produced_resources = {
+		unity = @k_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = {
+			NOT = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Uplink Node
+building_uplink_node_k = {
+	icon = "building_uplink_node"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		
+	}
+	
+	produced_resources = {
+		unity = @k_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}	
+	
+	upgrades = {
+		building_network_junction_k 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+# Network Junction
+building_network_junction_k = {
+	icon = "building_network_junction"
+	base_buildtime = @k_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	produced_resources = {
+		unity = @k_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_heritage_site"
+	}
+	
+	upgrades = {
+		building_system_conflux_k 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# System Conflux
+building_system_conflux_k = {
+	icon = "building_system_conflux"
+	base_buildtime = @k_time_3
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_3
+	}
+	
+	produced_resources = {
+		unity = @k_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_4
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}	
+	
+	prerequisites = {
+		"tech_hypercomms_forum"
+	}
+	
+	upgrades = {
+		building_alpha_hub_k 
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+# Alpha Hub
+building_alpha_hub_k = {
+	icon = "building_alpha_hub"
+	base_buildtime = @k_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost_4
+	}
+	
+	produced_resources = {
+		unity = @k_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+	}
+	
+	
+
+	potential = { 	
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_autocurating_vault"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}

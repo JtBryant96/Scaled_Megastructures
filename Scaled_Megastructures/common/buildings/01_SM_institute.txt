@@ -1,0 +1,733 @@
+@base_time = 720
+@b_time = 288000
+@a_time = 57600
+@f_time = 21600
+@g_time = 14400
+@k_time = 7200
+
+@base_cost = 300
+@b_cost = 120000
+@a_cost = 24000
+@f_cost = 9000
+@g_cost = 6000
+@k_cost = 3000
+
+@base_output = 5
+@b_output = 2000
+@a_output = 400
+@f_output = 150
+@g_output = 100
+@k_output = 50
+
+@base_upkeep = 10
+@b_upkeep = 4000
+@a_upkeep = 800
+@f_upkeep = 300
+@g_upkeep = 200
+@k_upkeep = 100
+
+@influence = 150
+
+################################## BASE ###################################################################################################
+building_institute = {
+	icon = "building_institute"
+	base_buildtime = @base_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @base_output
+		physics_research = @base_output
+		society_research = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core = {
+	icon = "building_singularity_core"
+	base_buildtime = @base_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @base_output
+		physics_research = @base_output
+		society_research = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+######################################################### CLASS B #####################################################################################################
+building_institute_b = {
+	icon = "building_institute"
+	base_buildtime = @b_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @b_output
+		physics_research = @b_output
+		society_research = @b_output
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b 
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core_b = {
+	icon = "building_singularity_core"
+	base_buildtime = @b_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @b_output
+		physics_research = @b_output
+		society_research = @b_output
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b 
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+######################################################### CLASS A #####################################################################################################
+building_institute_a = {
+	icon = "building_institute"
+	base_buildtime = @a_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @a_output
+		physics_research = @a_output
+		society_research = @a_output
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core_a = {
+	icon = "building_singularity_core"
+	base_buildtime = @a_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @a_output
+		physics_research = @a_output
+		society_research = @a_output
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a 
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+######################################################### CLASS F #####################################################################################################
+building_institute_f = {
+	icon = "building_institute"
+	base_buildtime = @f_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @f_output
+		physics_research = @f_output
+		society_research = @f_output
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core_f = {
+	icon = "building_singularity_core"
+	base_buildtime = @f_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @f_output
+		physics_research = @f_output
+		society_research = @f_output
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+######################################################### CLASS G #####################################################################################################
+building_institute_g = {
+	icon = "building_institute"
+	base_buildtime = @g_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @g_output
+		physics_research = @g_output
+		society_research = @g_output
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g 
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core_g = {
+	icon = "building_singularity_core"
+	base_buildtime = @g_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @g_output
+		physics_research = @g_output
+		society_research = @g_output
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g 
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+######################################################### CLASS K #####################################################################################################
+building_institute_k = {
+	icon = "building_institute"
+	base_buildtime = @k_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @k_output
+		physics_research = @k_output
+		society_research = @k_output
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k 
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+# Singularity Core
+building_singularity_core_k = {
+	icon = "building_singularity_core"
+	base_buildtime = @k_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+		influence = @influence
+	}
+	
+	produced_resources = {
+		engineering_research = @k_output
+		physics_research = @k_output
+		society_research = @k_output
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k 
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	prerequisites = {
+		"tech_singularity_core"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}

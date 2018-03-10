@@ -1,0 +1,647 @@
+@base_time_GSE	= 360
+@b_time_GSE		= 72000
+@a_time_GSE		= 14400
+@f_time_GSE		= 5400
+@g_time_GSE		= 3600
+@k_time_GSE		= 1800
+
+@base_cost_GSE	= 300
+@b_cost_GSE		= 120000
+@a_cost_GSE		= 24000
+@f_cost_GSE		= 9000
+@g_cost_GSE		= 6000
+@k_cost_GSE		= 3000
+
+@influence_150	= 150
+
+@base_output_GSE= 10
+@b_output_GSE	= 4000
+@a_output_GSE	= 800
+@f_output_GSE	= 300
+@g_output_GSE	= 200
+@k_output_GSE	= 100
+################################## BASE ###################################################################################################
+
+building_galactic_stock_exchange = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @base_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @base_output_GSE
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine = {
+	icon = "building_probability_engine"
+	base_buildtime = @base_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @base_output_GSE
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+######################################################### CLASS B #####################################################################################################
+building_galactic_stock_exchange_b = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @b_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @b_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine_b = {
+	icon = "building_probability_engine"
+	base_buildtime = @b_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @b_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+######################################################### CLASS A #####################################################################################################
+building_galactic_stock_exchange_a = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @a_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @a_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine_a = {
+	icon = "building_probability_engine"
+	base_buildtime = @a_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @a_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+######################################################### CLASS F #####################################################################################################
+building_galactic_stock_exchange_f = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @f_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @f_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine_f = {
+	icon = "building_probability_engine"
+	base_buildtime = @f_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @f_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+######################################################### CLASS G #####################################################################################################
+building_galactic_stock_exchange_g = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @g_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @g_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine_g = {
+	icon = "building_probability_engine"
+	base_buildtime = @g_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @g_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+######################################################### CLASS K #####################################################################################################
+building_galactic_stock_exchange_k = {
+	icon = "building_galactic_stock_exchange"
+	base_buildtime = @k_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @k_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+# Probability Engine
+building_probability_engine_k = {
+	icon = "building_probability_engine"
+	base_buildtime = @k_time_GSE
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost_GSE
+		influence = @influence_150
+	}
+	
+	produced_resources = {
+		energy = @k_output_GSE
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	country_modifier = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	prerequisites = {
+		"tech_probability_theory"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}

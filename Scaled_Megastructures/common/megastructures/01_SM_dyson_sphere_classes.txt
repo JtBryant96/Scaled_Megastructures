@@ -1,0 +1,786 @@
+@b_build_time = 270000
+@a_build_time = 63000
+@f_build_time = 27000
+@g_build_time = 18000
+@k_build_time = 7200
+@m_build_time = 720
+
+@b_build_cost = 600000
+@a_build_cost = 140000
+@f_build_cost = 60000
+@g_build_cost = 40000
+@k_build_cost = 16000
+@m_build_cost = 1600
+
+@b_final_output = 80000
+@a_final_output = 10000
+@f_final_output = 4000
+@g_final_output = 2000
+@k_final_output = 600
+@m_final_output = 40
+
+@b_3_output = 60000		
+@a_3_output = 7500
+@f_3_output = 3000
+@g_3_output = 1500
+@k_3_output = 450
+@m_3_output = 30
+
+@b_2_output = 40000
+@a_2_output = 5000
+@f_2_output = 2000
+@g_2_output = 1000
+@k_2_output = 300
+@m_2_output = 20
+
+@b_1_4_output = 20000
+@a_1_4_output = 2500
+@f_1_4_output = 1000
+@g_1_4_output = 500
+@k_1_4_output = 150
+@m_1_4_output = 10
+
+#Class B Star
+#Dyson Sphere Site 
+dyson_sphere_b_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	construction_blocks_others = yes
+	maintenance = {
+		energy = 10
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_b_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_b_0
+	}
+	construction_blocks_others = yes
+	build_time = @b_build_time
+	build_cost = {
+		minerals = @b_build_cost
+	}
+
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_b_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_b_1
+	}
+	construction_blocks_others = yes
+	build_time = @b_build_time
+	build_cost = {
+		minerals = @b_build_cost
+	}
+	monthly_production = {
+		energy = @b_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_b_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_b_2
+	}
+	construction_blocks_others = yes
+	build_time = @b_build_time
+	build_cost = {
+		minerals = @b_build_cost
+	}
+	monthly_production = {
+		energy = @b_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_b_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_b_3
+	}
+	construction_blocks_others = yes
+	build_time = @b_build_time
+	build_cost = {
+		minerals = @b_build_cost
+	}
+	monthly_production = {
+		energy = @b_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_b_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_b_4
+	}
+	construction_blocks_others = yes
+	build_time = @b_build_time
+	build_cost = {
+		minerals = @b_build_cost
+	}
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	monthly_production = {
+		energy = @b_final_output
+	}
+}
+
+
+#Class A Star
+#Dyson Sphere Site 
+dyson_sphere_a_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	maintenance = {
+		energy = 10
+	}
+	construction_blocks_others = yes
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_a_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_a_0
+	}
+	build_time = @a_build_time
+	build_cost = {
+		minerals = @a_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_a_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_a_1
+	}
+	build_time = @a_build_time
+	build_cost = {
+		minerals = @a_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @a_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_a_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_a_2
+	}
+	build_time = @a_build_time
+	build_cost = {
+		minerals = @a_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @a_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_a_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_a_3
+	}
+	build_time = @a_build_time
+	build_cost = {
+		minerals = @a_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @b_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_a_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_a_4
+	}
+	build_time = @a_build_time
+	build_cost = {
+		minerals = @a_build_cost
+	}
+	construction_blocks_others = yes
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	monthly_production = {
+		energy = @a_final_output
+	}
+}
+
+
+#Class F Star
+#Dyson Sphere Site 
+dyson_sphere_f_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	maintenance = {
+		energy = 10
+	}
+	construction_blocks_others = yes
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_f_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_f_0
+	}
+	build_time = @f_build_time
+	build_cost = {
+		minerals = @f_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_f_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_f_1
+	}
+	build_time = @f_build_time
+	build_cost = {
+		minerals = @f_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @f_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_f_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_f_2
+	}
+	build_time = @f_build_time
+	build_cost = {
+		minerals = @f_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @f_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_f_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_f_3
+	}
+	build_time = @f_build_time
+	build_cost = {
+		minerals = @f_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @f_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_f_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_f_4
+	}
+	build_time = @f_build_time
+	build_cost = {
+		minerals = @f_build_cost
+	}
+	construction_blocks_others = yes
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	monthly_production = {
+		energy = @f_final_output
+	}
+}
+
+
+#Class G Star
+#Dyson Sphere Site 
+dyson_sphere_g_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	maintenance = {
+		energy = 10
+	}
+	construction_blocks_others = yes
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_g_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_g_0
+	}
+	build_time = @g_build_time
+	build_cost = {
+		minerals = @g_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_g_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_g_1
+	}
+	build_time = @g_build_time
+	build_cost = {
+		minerals = @g_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @g_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_g_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_g_2
+	}
+	build_time = @g_build_time
+	build_cost = {
+		minerals = @g_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @g_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_g_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_g_3
+	}
+	build_time = @g_build_time
+	build_cost = {
+		minerals = @g_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @g_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_g_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_g_4
+	}
+	build_time = @g_build_time
+	build_cost = {
+		minerals = @g_build_cost
+	}
+	construction_blocks_others = yes
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	monthly_production = {
+		energy = @g_final_output
+	}
+}
+
+
+#Class K Star
+#Dyson Sphere Site 
+dyson_sphere_k_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	maintenance = {
+		energy = 10
+	}
+	construction_blocks_others = yes
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_k_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_k_0
+	}
+	build_time = @k_build_time
+	build_cost = {
+		minerals = @k_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_k_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_k_1
+	}
+	build_time = @k_build_time
+	build_cost = {
+		minerals = @k_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @k_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_k_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_k_2
+	}
+	build_time = @k_build_time
+	build_cost = {
+		minerals = @k_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @k_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_k_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_k_3
+	}
+	build_time = @k_build_time
+	build_cost = {
+		minerals = @k_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @k_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_k_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_k_4
+	}
+	build_time = @k_build_time
+	build_cost = {
+		minerals = @k_build_cost
+	}
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @k_final_output
+	}
+}
+
+
+#Class M Star
+#Dyson Sphere Site 
+dyson_sphere_m_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	maintenance = {
+		energy = 10
+	}
+	construction_blocks_others = yes
+	potential = {
+		always = no
+	}
+}
+
+#Dyson Sphere Frame
+dyson_sphere_m_1 = {
+	entity = "dyson_sphere_phase_01_entity"
+	construction_entity = "dyson_sphere_frame_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_m_0
+	}
+	build_time = @m_build_time
+	build_cost = {
+		minerals = @m_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_m_2 = {
+	entity = "dyson_sphere_phase_02_entity"
+	construction_entity = "dyson_sphere_part_1_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_m_1
+	}
+	build_time = @m_build_time
+	build_cost = {
+		minerals = @m_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @m_1_4_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_m_3 = {
+	entity = "dyson_sphere_phase_03_entity"
+	construction_entity = "dyson_sphere_part_2_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_m_2
+	}
+	build_time = @m_build_time
+	build_cost = {
+		minerals = @m_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @m_2_output
+	}
+}
+
+#Partial Dyson Sphere
+dyson_sphere_m_4 = {
+	entity = "dyson_sphere_phase_04_entity"
+	construction_entity = "dyson_sphere_part_3_entity"
+	portrait = "GFX_megastructure_construction_background"
+	upgrade_from = {
+		dyson_sphere_m_3
+	}
+	build_time = @m_build_time
+	build_cost = {
+		minerals = @m_build_cost
+	}
+	construction_blocks_others = yes
+	monthly_production = {
+		energy = @m_3_output
+	}
+}
+
+#Dyson Sphere
+dyson_sphere_m_5 = {
+	entity = "dyson_sphere_phase_05_entity"
+	construction_entity = "dyson_sphere_part_4_entity"
+	portrait = "GFX_megastructure_dyson_sphere_background"
+	upgrade_from = {
+		dyson_sphere_m_4
+	}
+	build_time = @m_build_time
+	build_cost = {
+		minerals = @m_build_cost
+	}
+	construction_blocks_others = yes
+	on_build_complete = {
+		every_system_planet = {
+			limit = {
+				OR = {
+					is_planet_class = pc_molten
+					is_planet_class = pc_toxic
+				}
+			}
+			change_pc = pc_frozen
+		}
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_barren
+			}
+			change_pc = pc_barren_cold
+		}		
+	}
+	monthly_production = {
+		energy = @m_final_output
+	}
+}

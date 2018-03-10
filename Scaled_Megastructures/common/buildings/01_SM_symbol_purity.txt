@@ -1,0 +1,272 @@
+@base_time = 240
+@b_time = 96000
+@a_time = 19200
+@f_time = 7200
+@g_time = 4800
+@k_time = 2400
+
+@base_cost = 150
+@b_cost = 60000
+@a_cost = 12000
+@f_cost = 4500
+@g_cost = 3000
+@k_cost = 1500
+
+@base_unity = 4
+@b_unity = 1600
+@a_unity = 320
+@f_unity = 120
+@g_unity = 80
+@k_unity = 40
+
+building_symbol_purity = {
+	icon = "building_symbol_purity"
+	base_buildtime = @base_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_symbol_purity_b = {
+	icon = "building_symbol_purity"
+	base_buildtime = @b_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_symbol_purity_a = {
+	icon = "building_symbol_purity"
+	base_buildtime = @a_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_symbol_purity_f = {
+	icon = "building_symbol_purity"
+	base_buildtime = @f_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_symbol_purity_g = {
+	icon = "building_symbol_purity"
+	base_buildtime = @g_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_symbol_purity_k = {
+	icon = "building_symbol_purity"
+	base_buildtime = @k_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_purity_symbol_purity
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			OR = {
+				NOT = { has_swapped_tradition = tr_purity_symbol_purity }
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.20
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

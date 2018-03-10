@@ -1,0 +1,217 @@
+@base_time = 1000
+@b_time = 400000
+@a_time = 80000
+@f_time = 30000
+@g_time = 20000
+@k_time = 10000
+
+@base_cost = 2500
+@b_cost = 1000000
+@a_cost = 200000
+@f_cost = 75000
+@g_cost = 50000
+@k_cost = 25000
+
+@base_unity = 15
+@b_unity = 6000
+@a_unity = 1200
+@f_unity = 450
+@g_unity = 300
+@k_unity = 150
+
+building_stellarite_trophy = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @base_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @base_cost
+	}	
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_stellarite_trophy_b = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @b_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @b_cost
+	}	
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			is_planet_class = pc_ringworld_habitable_b
+
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_stellarite_trophy_a = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @a_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @a_cost
+	}	
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			is_planet_class = pc_ringworld_habitable_a
+
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_stellarite_trophy_f = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @f_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @f_cost
+	}	
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			is_planet_class = pc_ringworld_habitable_f
+
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_stellarite_trophy_g = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @g_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @g_cost
+	}	
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			is_planet_class = pc_ringworld_habitable_g
+
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_stellarite_trophy_k = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @k_time
+	empire_unique = yes
+	
+	cost = { 
+		minerals = @k_cost
+	}	
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+			owner = {
+				has_country_flag = stellarite_trophy_allowed
+			}
+			is_planet_class = pc_ringworld_habitable_k
+
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+	
+	ai_replace = no
+	event_building = yes
+}

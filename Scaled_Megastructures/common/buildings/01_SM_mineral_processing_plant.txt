@@ -1,0 +1,610 @@
+@base_time_1 = 180
+@base_time_2 = 180
+@b_time_1 = 72000
+@b_time_2 = 72000
+@a_time_1 = 14400
+@a_time_2 = 14400
+@f_time_1 = 5400
+@f_time_2 = 5400
+@g_time_1 = 3600
+@g_time_2 = 3600
+@k_time_1 = 2100
+@k_time_2 = 2100
+
+@base_cost_1 = 150
+@base_cost_2 = 200
+@b_cost_1 = 60000
+@b_cost_2 = 80000
+@a_cost_1 = 12000
+@a_cost_2 = 16000
+@f_cost_1 = 4500
+@f_cost_2 = 6000
+@g_cost_1 = 3000
+@g_cost_2 = 4000
+@k_cost_1 = 1500
+@k_cost_2 = 2000
+
+@base_output_1 = 2
+@base_output_2 = 4
+@b_output_1 = 800
+@b_output_2 = 1600
+@a_output_1 = 160
+@a_output_2 = 320
+@f_output_1 = 60
+@f_output_2 = 120
+@g_output_1 = 40
+@g_output_2 = 80
+@k_output_1 = 20
+@k_output_2 = 40
+
+@base_upkeep_1 = 2
+@base_upkeep_2 = 3
+@b_upkeep_1 = 800
+@b_upkeep_2 = 1200
+@a_upkeep_1 = 160
+@a_upkeep_2 = 240
+@f_upkeep_1 = 60
+@f_upkeep_2 = 90
+@g_upkeep_1 = 40
+@g_upkeep_2 = 60
+@k_upkeep_1 = 20
+@k_upkeep_2 = 30
+
+######################################################### BASE ###################################################################################################
+building_mineral_processing_plant_1 = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_1
+	}
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2 = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @base_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_2
+	}
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_mineral_processing_plant_1_b = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2_b 
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2_b = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @b_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_mineral_processing_plant_1_a = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2_a 
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2_a = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @a_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_mineral_processing_plant_1_f = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2_f 
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2_f = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @f_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_mineral_processing_plant_1_g = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2_g 
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2_g = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @g_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_mineral_processing_plant_1_k = {
+	icon = "building_mineral_processing_plant_1"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	upgrades = {
+		building_mineral_processing_plant_2_k 
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_mineral_processing_plant_2_k = {
+	icon = "building_mineral_processing_plant_2"
+	base_buildtime = @k_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_minerals_mult = 0.20
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	prerequisites = {
+		"tech_mineral_processing_2"
+	}
+}

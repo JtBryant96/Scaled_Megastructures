@@ -1,0 +1,282 @@
+namespace = dyson_sphere
+
+# Dyson Sphere Frame Built Notification (HIDDEN)
+country_event = {
+	id = dyson_sphere.4001
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			OR = {
+				is_megastructure_type = dyson_sphere_b_1
+				is_megastructure_type = dyson_sphere_a_1
+				is_megastructure_type = dyson_sphere_f_1
+				is_megastructure_type = dyson_sphere_g_1
+				is_megastructure_type = dyson_sphere_k_1
+				is_megastructure_type = dyson_sphere_m_1
+			}
+		}
+	}
+	
+	immediate = {
+		FROMFROM = { save_event_target_as = dyson_system }
+		every_relation = {
+			limit = {
+				is_ai = no
+				has_communications = root
+			}
+			country_event = { id = dyson_sphere.4002 }
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = started_first_dyson_sphere }
+			}
+			set_country_flag = started_first_dyson_sphere
+			else = {
+				if = {
+					limit = {
+						has_country_flag = started_first_dyson_sphere
+					}
+					set_country_flag = started_first_dyson_sphere_2
+				}
+			}
+		}
+	}
+}
+
+# Neighbor begins building Dyson Sphere
+country_event = {
+	id = dyson_sphere.4002
+	title = utopia.4002.name
+	desc = {
+		text = utopia.4002.desc.a
+		trigger = {
+			FROM = { 
+				has_country_flag = started_first_dyson_sphere
+				NOT = { has_country_flag = started_first_dyson_sphere_2 }
+			}
+		}
+	}
+	desc = {
+		text = utopia.4002.desc.b
+		trigger = {
+			FROM = { 
+				has_country_flag = started_first_dyson_sphere_2
+			}
+		}
+	}
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_mega_structure_other_empire_build_start
+	location = event_target:dyson_system
+	
+	is_triggered_only = yes
+	
+	option = { # has built own Dyson Sphere
+		trigger = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = dyson_sphere_b_0
+					is_megastructure_type = dyson_sphere_b_1
+					is_megastructure_type = dyson_sphere_b_2
+					is_megastructure_type = dyson_sphere_b_3
+					is_megastructure_type = dyson_sphere_b_4
+					is_megastructure_type = dyson_sphere_b_5
+					is_megastructure_type = dyson_sphere_a_0
+					is_megastructure_type = dyson_sphere_a_1
+					is_megastructure_type = dyson_sphere_a_2
+					is_megastructure_type = dyson_sphere_a_3
+					is_megastructure_type = dyson_sphere_a_4
+					is_megastructure_type = dyson_sphere_a_5
+					is_megastructure_type = dyson_sphere_f_0
+					is_megastructure_type = dyson_sphere_f_1
+					is_megastructure_type = dyson_sphere_f_2
+					is_megastructure_type = dyson_sphere_f_3
+					is_megastructure_type = dyson_sphere_f_4
+					is_megastructure_type = dyson_sphere_f_5
+					is_megastructure_type = dyson_sphere_g_0
+					is_megastructure_type = dyson_sphere_g_1
+					is_megastructure_type = dyson_sphere_g_2
+					is_megastructure_type = dyson_sphere_g_3
+					is_megastructure_type = dyson_sphere_g_4
+					is_megastructure_type = dyson_sphere_g_5
+					is_megastructure_type = dyson_sphere_k_0
+					is_megastructure_type = dyson_sphere_k_1
+					is_megastructure_type = dyson_sphere_k_2
+					is_megastructure_type = dyson_sphere_k_3
+					is_megastructure_type = dyson_sphere_k_4
+					is_megastructure_type = dyson_sphere_k_5
+					is_megastructure_type = dyson_sphere_m_0
+					is_megastructure_type = dyson_sphere_m_1
+					is_megastructure_type = dyson_sphere_m_2
+					is_megastructure_type = dyson_sphere_m_3
+					is_megastructure_type = dyson_sphere_m_4
+					is_megastructure_type = dyson_sphere_m_5
+				}
+			}
+		}
+		name = utopia.4002.a
+	}
+	option = { # has no Dyson Sphere
+		trigger = {
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = dyson_sphere_b_0
+						is_megastructure_type = dyson_sphere_b_1
+						is_megastructure_type = dyson_sphere_b_2
+						is_megastructure_type = dyson_sphere_b_3
+						is_megastructure_type = dyson_sphere_b_4
+						is_megastructure_type = dyson_sphere_b_5
+						is_megastructure_type = dyson_sphere_a_0
+						is_megastructure_type = dyson_sphere_a_1
+						is_megastructure_type = dyson_sphere_a_2
+						is_megastructure_type = dyson_sphere_a_3
+						is_megastructure_type = dyson_sphere_a_4
+						is_megastructure_type = dyson_sphere_a_5
+						is_megastructure_type = dyson_sphere_f_0
+						is_megastructure_type = dyson_sphere_f_1
+						is_megastructure_type = dyson_sphere_f_2
+						is_megastructure_type = dyson_sphere_f_3
+						is_megastructure_type = dyson_sphere_f_4
+						is_megastructure_type = dyson_sphere_f_5
+						is_megastructure_type = dyson_sphere_g_0
+						is_megastructure_type = dyson_sphere_g_1
+						is_megastructure_type = dyson_sphere_g_2
+						is_megastructure_type = dyson_sphere_g_3
+						is_megastructure_type = dyson_sphere_g_4
+						is_megastructure_type = dyson_sphere_g_5
+						is_megastructure_type = dyson_sphere_k_0
+						is_megastructure_type = dyson_sphere_k_1
+						is_megastructure_type = dyson_sphere_k_2
+						is_megastructure_type = dyson_sphere_k_3
+						is_megastructure_type = dyson_sphere_k_4
+						is_megastructure_type = dyson_sphere_k_5
+						is_megastructure_type = dyson_sphere_m_0
+						is_megastructure_type = dyson_sphere_m_1
+						is_megastructure_type = dyson_sphere_m_2
+						is_megastructure_type = dyson_sphere_m_3
+						is_megastructure_type = dyson_sphere_m_4
+						is_megastructure_type = dyson_sphere_m_5
+					}
+				}
+			}
+		}
+		name = utopia.4002.b
+	}
+}
+
+# Dyson Sphere Frame built
+country_event = {
+	id = dyson_sphere.4003
+	title = utopia.4003.name
+	desc = utopia.4003.desc
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_dyson_sphere_build_upgrade_frame
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			OR = {
+				is_megastructure_type = dyson_sphere_b_1
+				is_megastructure_type = dyson_sphere_a_1
+				is_megastructure_type = dyson_sphere_f_1
+				is_megastructure_type = dyson_sphere_g_1
+				is_megastructure_type = dyson_sphere_k_1
+				is_megastructure_type = dyson_sphere_m_1
+			}
+		}
+	}
+	
+	option = {
+		name = utopia.4003.a
+	}
+}
+
+# Dyson Sphere partially completed
+country_event = {
+	id = dyson_sphere.4004
+	title = utopia.4004.name
+	desc = utopia.4004.desc
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_dyson_sphere_build_upgrade_panel
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			OR = {
+				is_megastructure_type = dyson_sphere_b_2
+				is_megastructure_type = dyson_sphere_a_2
+				is_megastructure_type = dyson_sphere_f_2
+				is_megastructure_type = dyson_sphere_g_2
+				is_megastructure_type = dyson_sphere_k_2
+				is_megastructure_type = dyson_sphere_m_2
+			}
+		}
+	}
+	
+	option = {
+		name = utopia.4004.a
+	}
+}
+
+# Dyson Sphere completed
+country_event = {
+	id = dyson_sphere.4005
+	title = utopia.4005.name
+	desc = utopia.4005.desc
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_dyson_sphere_build_complete
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			OR = {
+				is_megastructure_type = dyson_sphere_b_5
+				is_megastructure_type = dyson_sphere_a_5
+				is_megastructure_type = dyson_sphere_f_5
+				is_megastructure_type = dyson_sphere_g_5
+				is_megastructure_type = dyson_sphere_k_5
+				is_megastructure_type = dyson_sphere_m_5
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = built_dyson_sphere
+		every_relation = {
+			limit = {
+				is_ai = no
+				has_communications = root
+			}
+			country_event = { id = dyson_sphere.4010 }
+		}
+	}
+	
+	option = {
+		name = utopia.4005.a
+	}
+}
+
+# Neighbor notification
+country_event = {
+	id = dyson_sphere.4010
+	title = utopia.4010.name
+	desc = utopia.4010.desc
+	picture = GFX_evt_dyson_sphere
+	show_sound = event_mega_structure_other_empire_build_complete
+	location = FROMFROMFROM
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}

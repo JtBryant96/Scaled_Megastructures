@@ -1,0 +1,201 @@
+@base_unity_1 = 1
+@base_unity_2 = 2
+@b_unity_1 = 400
+@b_unity_2 = 800
+@a_unity_1 = 80
+@a_unity_2 = 160
+@f_unity_1 = 30
+@f_unity_2 = 60
+@g_unity_1 = 20
+@g_unity_2 = 40
+@k_unity_1 = 10
+@k_unity_2 = 20
+
+building_organic_sanctuary = {
+	is_listed = no
+	
+	ai_replace = no
+	event_building = yes
+	
+	required_resources = {
+		energy = 1
+	}
+	
+	produced_resource = {
+		unity = @base_unity_1
+	}
+	
+#	produced_resource_trigger = {
+#		modifier = {
+#			NOT = {
+#				is_planet_class = pc_ringworld_habitable_b
+#				is_planet_class = pc_ringworld_habitable_a
+#				is_planet_class = pc_ringworld_habitable_f
+#				is_planet_class = pc_ringworld_habitable_g
+#				is_planet_class = pc_ringworld_habitable_k
+#			}	
+#			resources = {
+#				unity = @base_unity_1
+#			}		
+#		}
+#		modifier = {
+#			is_planet_class = pc_ringworld_habitable_b	
+#			resources = {
+#				unity = @b_unity_1
+#			}		
+#		}
+#		modifier = {
+#			is_planet_class = pc_ringworld_habitable_a	
+#			resources = {
+#				unity = @a_unity_1
+#			}		
+#		}
+#		modifier = {
+#			is_planet_class = pc_ringworld_habitable_f	
+#			resources = {
+#				unity = @f_unity_1
+#			}		
+#		}
+#		modifier = {
+#			is_planet_class = pc_ringworld_habitable_g	
+#			resources = {
+#				unity = @g_unity_1
+#			}		
+#		}
+#		modifier = {
+#			is_planet_class = pc_ringworld_habitable_k	
+#			resources = {
+#				unity = @k_unity_1
+#			}		
+#		}
+#	}
+
+	allow = {
+		always = no
+	}
+	
+	destroy_if = {
+		exists = owner
+		NAND = {
+			owner = {
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}	
+			has_grown_pop = yes
+			pop = {
+				has_living_standard = {
+					country = planet.owner
+					type = living_standard_organic_trophy
+				}
+			}			
+		}		
+	}
+	
+	# Building requires bio-trophy pops to function
+	active = { # scope: pop
+		custom_tooltip = {
+			fail_text = "bio_trophy_tooltip_1"
+			has_living_standard = {
+				country = planet.owner
+				type = living_standard_organic_trophy
+			}
+		}
+	}
+
+	ai_replace = no
+	event_building = yes
+	can_demolish = no
+}
+
+# Organic Paradise (Servitors Only)
+building_organic_paradise = {
+	is_listed = no
+	
+	ai_replace = no
+	event_building = yes
+	
+	required_resources = {
+		energy = 1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+			resources = {
+				unity = @base_unity_2
+			}		
+		}
+		modifier = {
+			is_planet_class = pc_ringworld_habitable_b	
+			resources = {
+				unity = @b_unity_2
+			}		
+		}
+		modifier = {
+			is_planet_class = pc_ringworld_habitable_a	
+			resources = {
+				unity = @a_unity_2
+			}		
+		}
+		modifier = {
+			is_planet_class = pc_ringworld_habitable_f	
+			resources = {
+				unity = @f_unity_2
+			}		
+		}
+		modifier = {
+			is_planet_class = pc_ringworld_habitable_g	
+			resources = {
+				unity = @g_unity_2
+			}		
+		}
+		modifier = {
+			is_planet_class = pc_ringworld_habitable_k	
+			resources = {
+				unity = @k_unity_2
+			}		
+		}
+	}
+
+	allow = {
+		always = no
+	}
+	
+	destroy_if = {
+		exists = owner
+		NAND = {
+			owner = {
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}	
+			has_grown_pop = yes
+			pop = {
+				has_living_standard = {
+					country = planet.owner
+					type = living_standard_organic_trophy
+				}
+			}			
+		}		
+	}
+	
+	# Building requires bio-trophy pops to function
+	active = { # scope: pop
+		custom_tooltip = {
+			fail_text = "bio_trophy_tooltip_1"
+			has_living_standard = {
+				country = planet.owner
+				type = living_standard_organic_trophy
+			}
+		}
+	}
+
+	ai_replace = no
+	event_building = yes
+	can_demolish = no
+}

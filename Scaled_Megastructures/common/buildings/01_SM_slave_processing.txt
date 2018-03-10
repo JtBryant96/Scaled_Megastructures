@@ -1,0 +1,548 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 250
+@b_cost = 100000
+@a_cost = 20000
+@f_cost = 7500
+@g_cost = 5000
+@k_cost = 2500
+
+@base_output = 2
+@b_output = 800
+@a_output = 160
+@f_output = 60
+@g_output = 40
+@k_output = 20
+
+@base_upkeep = 3
+@b_upkeep = 1200
+@a_upkeep = 240
+@f_upkeep = 90
+@g_upkeep = 60
+@k_upkeep = 30
+
+######################################################### BASE ###################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing = {
+	base_buildtime = @base_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		minerals = @base_output
+		food = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing_b = {
+	base_buildtime = @b_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		minerals = @b_output
+		food = @b_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing_a = {
+	base_buildtime = @a_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		minerals = @a_output
+		food = @a_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing_f = {
+	base_buildtime = @f_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		minerals = @f_output
+		food = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing_g = {
+	base_buildtime = @g_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		minerals = @g_output
+		food = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing_k = {
+	base_buildtime = @k_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		minerals = @k_output
+		food = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	planet_modifier = {
+		slave_mineral_output = 0.10
+		slave_food_output = 0.10
+		country_unrest_unhappy_slave_effect_mult = -0.25
+	}	
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				any_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		has_any_capital_1 = yes
+	}
+	
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_slave_processing
+				count_pops = {
+					limit = { is_enslaved = yes }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

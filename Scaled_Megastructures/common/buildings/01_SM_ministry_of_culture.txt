@@ -1,0 +1,253 @@
+@base_time = 500
+@b_time = 200000
+@a_time = 40000
+@f_time = 15000
+@g_time = 10000
+@k_time = 5000
+
+@base_unity = 10
+@b_unity = 4000
+@a_unity = 800
+@f_unity = 300
+@g_unity = 200
+@k_unity = 100
+
+building_artist_patron = {
+	icon = "building_modern_1"
+	base_buildtime = @base_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_patron_b = {
+	icon = "building_modern_1"
+	base_buildtime = @b_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_patron_a = {
+	icon = "building_modern_1"
+	base_buildtime = @a_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_patron_f = {
+	icon = "building_modern_1"
+	base_buildtime = @f_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_patron_g = {
+	icon = "building_modern_1"
+	base_buildtime = @g_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_patron_k = {
+	icon = "building_modern_1"
+	base_buildtime = @k_time
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_resource_unity_mult = 0.05
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				has_country_flag = artist_building_patron
+			}
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist_patron } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}

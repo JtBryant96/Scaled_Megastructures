@@ -1,0 +1,371 @@
+@base_time = 180
+@b_time = 72000
+@a_time = 14400
+@f_time = 5400
+@g_time = 3600
+@k_time = 1800
+
+@base_cost = 100
+@b_cost = 40000
+@a_cost = 8000
+@f_cost = 3000
+@g_cost = 2000
+@k_cost = 1000
+
+@base_output = 5
+@b_output = 2000
+@a_output = 400
+@f_output = 150
+@g_output = 100
+@k_output = 50
+
+@base_upkeep = 1
+@b_upkeep = 400
+@a_upkeep = 80
+@f_upkeep = 30
+@g_upkeep = 20
+@k_upkeep = 10
+
+building_nutrient_paste_facility = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @base_time
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	produced_resources = {
+		food = @base_output
+	}
+		
+	show_tech_unlock_if = {
+		has_authority = auth_machine_intelligence
+		has_government = gov_machine_servitor # required civic cannot be added/removed
+	}
+
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			NOT = {
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_nutrient_paste_facility_b = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @b_time
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	produced_resources = {
+		food = @b_output
+	}
+		
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_nutrient_paste_facility_a = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @a_time
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	produced_resources = {
+		food = @a_output
+	}
+		
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_nutrient_paste_facility_f = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @f_time
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	produced_resources = {
+		food = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_nutrient_paste_facility_g = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @g_time
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	produced_resources = {
+		food = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_nutrient_paste_facility_k = {
+	icon = "building_nutrient_paste_facility"
+	base_buildtime = @k_time
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	produced_resources = {
+		food = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+			has_government = gov_machine_servitor
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_servitor 
+			}
+		}		
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

@@ -1,0 +1,392 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 500
+@b_cost = 200000
+@a_cost = 40000
+@f_cost = 15000
+@g_cost = 10000
+@k_cost = 5000
+
+@base_output = 3
+@b_output = 1200
+@a_output = 240
+@f_output = 90
+@g_output = 60
+@k_output = 30
+
+@base_upkeep = 5
+@b_upkeep = 2000
+@a_upkeep = 400
+@f_upkeep = 150
+@g_upkeep = 10
+@k_upkeep = 50
+
+building_planetary_shield_generator = {
+	icon = "building_shield_generator"
+	base_buildtime = @base_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @base_output
+		physics_research = @base_output
+	}	
+	
+	potential = {
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator_b = {
+	icon = "building_shield_generator"
+	base_buildtime = @b_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @b_output
+		physics_research = @b_output
+	}	
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator_a = {
+	icon = "building_shield_generator"
+	base_buildtime = @a_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @a_output
+		physics_research = @a_output
+	}	
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator_f = {
+	icon = "building_shield_generator"
+	base_buildtime = @f_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @f_output
+		physics_research = @f_output
+	}	
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator_g = {
+	icon = "building_shield_generator"
+	base_buildtime = @g_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @g_output
+		physics_research = @g_output
+	}	
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator_k = {
+	icon = "building_shield_generator"
+	base_buildtime = @k_time	
+	planet_unique = yes
+	immune_to_bombardment = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.75
+	}
+
+	produced_resources = {
+		engineering_research = @k_output
+		physics_research = @k_output
+	}	
+	
+	show_tech_unlock_if = { always = no }
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		fromfrom = {
+			has_technology = tech_planetary_shield_generator
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

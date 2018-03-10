@@ -1,0 +1,578 @@
+@base_time = 120
+@b_time = 48000
+@a_time = 9600
+@f_time = 3600
+@g_time = 2400
+@k_time = 1200
+
+@base_cost = 30
+@b_cost = 12000
+@a_cost = 2400
+@f_cost = 900
+@g_cost = 600
+@k_cost = 300
+
+@base_unity = 15
+@b_unity = 6000
+@a_unity = 1200
+@f_unity = 450
+@g_unity = 300
+@k_unity = 150
+
+######################################################### BASE ###################################################################################################
+building_guardian_dragon_shrine = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @base_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @base_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+######################################################### CLASS B ################################################################################################
+building_guardian_dragon_shrine_b = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @b_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument_b = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @b_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+######################################################### CLASS A ################################################################################################
+building_guardian_dragon_shrine_a = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @a_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument_a = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @a_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+######################################################### CLASS F ################################################################################################
+building_guardian_dragon_shrine_f = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @f_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument_f = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @f_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+######################################################### CLASS G ################################################################################################
+building_guardian_dragon_shrine_g = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @g_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument_g = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @g_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+######################################################### CLASS K ################################################################################################
+building_guardian_dragon_shrine_k = {
+	icon = "building_guardian_dragon_shrine"
+	base_buildtime = @k_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_shrine } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_guardian_dragon_monument_k = {
+	icon = "building_guardian_dragon_monument"
+	base_buildtime = @k_time
+
+	empire_unique = yes
+
+	requires_pop = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	potential = {
+		planet.owner = {
+			has_country_flag = dragon_slayer
+			NOT = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_guardian_dragon_monument } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}

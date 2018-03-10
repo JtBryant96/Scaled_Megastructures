@@ -1,0 +1,20 @@
+
+on_megastructure_upgraded = {
+	events = {
+		ringworld.2000
+		
+		ringworld.2003	
+		ringworld.2004
+		
+		dyson_sphere.4001
+		dyson_sphere.4003
+		dyson_sphere.4004
+		dyson_sphere.4005
+	}
+}
+
+on_colonized = {
+	events = {
+		ringworld.2001
+	}
+}	

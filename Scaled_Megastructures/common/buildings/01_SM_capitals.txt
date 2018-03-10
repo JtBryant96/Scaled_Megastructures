@@ -1,0 +1,3450 @@
+@base_time_0	= 180
+@base_time_1	= 360
+@base_time_2	= 720
+@base_time_3	= 1080
+@b_time_0		= 72000
+@b_time_1		= 144000
+@b_time_2		= 288000
+@b_time_3		= 432000
+@a_time_0		= 14400
+@a_time_1		= 28800
+@a_time_2		= 57600
+@a_time_3		= 86400
+@f_time_0		= 5400
+@f_time_1		= 10800
+@f_time_2		= 21600
+@f_time_3		= 32400
+@g_time_0		= 3600
+@g_time_1		= 7200
+@g_time_2		= 14400
+@g_time_3		= 21600
+@k_time_0		= 1800
+@k_time_1		= 3600
+@k_time_2		= 7200
+@k_time_3		= 10800
+
+@base_build_cost_0	= 0
+@base_build_cost_1	= 350
+@base_build_cost_2	= 500
+@base_build_cost_3	= 1000
+@b_build_cost_0		= 0
+@b_build_cost_1		= 140000
+@b_build_cost_2		= 200000
+@b_build_cost_3		= 400000
+@a_build_cost_0		= 0
+@a_build_cost_1		= 28000
+@a_build_cost_2		= 40000
+@a_build_cost_3		= 80000
+@f_build_cost_0		= 0
+@f_build_cost_1		= 10500
+@f_build_cost_2		= 15000
+@f_build_cost_3		= 30000
+@g_build_cost_0		= 0
+@g_build_cost_1		= 7000
+@g_build_cost_2		= 10000
+@g_build_cost_3		= 20000
+@k_build_cost_0		= 0
+@k_build_cost_1		= 3500
+@k_build_cost_2		= 5000
+@k_build_cost_3		= 10000
+
+@base_adj_1	= 1
+@base_adj_2	= 2
+@base_adj_3	= 3
+@b_adj_1	= 400
+@b_adj_2	= 800
+@b_adj_3	= 1200
+@a_adj_1	= 80
+@a_adj_2	= 160
+@a_adj_3	= 240
+@f_adj_1	= 30
+@f_adj_2	= 60
+@f_adj_3	= 90
+@g_adj_1	= 20
+@g_adj_2	= 40
+@g_adj_3	= 60
+@k_adj_1	= 10
+@k_adj_2	= 20
+@k_adj_3	= 30
+
+@base_energy_0	= 2
+@base_energy_1	= 4
+@base_energy_2	= 6
+@base_energy_3	= 8
+@b_energy_0		= 800
+@b_energy_1		= 1600
+@b_energy_2		= 2400
+@b_energy_3		= 3200
+@a_energy_0		= 160
+@a_energy_1		= 320
+@a_energy_2		= 480
+@a_energy_3		= 640
+@f_energy_0		= 60
+@f_energy_1		= 120
+@f_energy_2		= 180
+@f_energy_3		= 240
+@g_energy_0		= 40
+@g_energy_1		= 80
+@g_energy_2		= 120
+@g_energy_3		= 160
+@k_energy_0		= 20
+@k_energy_1		= 40
+@k_energy_2		= 60
+@k_energy_3		= 80
+
+@base_unity_0	= 1
+@b_unity_0 = 400
+@a_unity_0 = 80
+@f_unity_0 = 30
+@g_unity_0 = 20
+@k_unity_0 = 10
+@base_unity_1	= 2
+@b_unity_1 = 800
+@a_unity_1 = 160
+@f_unity_1 = 60
+@g_unity_1 = 40
+@k_unity_1 = 50
+@base_unity_2	= 3
+@b_unity_2 = 1200
+@a_unity_2 = 240
+@f_unity_2 = 90
+@g_unity_2 = 60
+@k_unity_2 = 30
+@base_unity_3	= 4
+@b_unity_3 = 1600
+@a_unity_3 = 320
+@f_unity_3 = 120
+@g_unity_3 = 80
+@k_unity_3 = 40
+@base_extra_unity = 1
+@b_extra_unity = 400
+@a_extra_unity = 80
+@f_extra_unity = 30
+@g_extra_unity = 20
+@k_extra_unity = 10
+
+@base_armies_0 = 1
+@base_armies_1 = 3
+@base_armies_2 = 5
+@base_armies_3 = 7
+@b_armies_0 = 400
+@b_armies_1 = 1200
+@b_armies_2 = 2000
+@b_armies_3 = 2800
+@a_armies_0 = 80
+@a_armies_1 = 240
+@a_armies_2 = 400
+@a_armies_3 = 560
+@f_armies_0 = 30
+@f_armies_1 = 90
+@f_armies_2 = 150
+@f_armies_3 = 210
+@g_armies_0 = 20
+@g_armies_1 = 60
+@g_armies_2 = 100
+@g_armies_3 = 140
+@k_armies_0 = 10
+@k_armies_1 = 30
+@k_armies_2 = 50
+@k_armies_3 = 70
+
+################################## BASE ###################################################################################################
+# Colony Shelter
+building_colony_shelter = {
+	icon = "building_colony_shelter"
+	base_buildtime = @base_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @base_armies_0
+	
+	cost = {
+		minerals = @base_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @base_energy_0
+		unity = @base_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}	
+		has_capital_0 = no
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1 = {
+	icon = "building_capital_1"
+	base_buildtime = @base_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @base_armies_1
+	
+	cost = {
+		minerals = @base_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @base_energy_1
+		unity = @base_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_1
+		tile_building_resource_food_add = @base_adj_1
+		tile_building_resource_energy_add = @base_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2 = {
+	icon = "building_capital_2"
+	base_buildtime = @base_time_2
+	is_listed = no
+	defense_armies = @base_armies_2
+	
+	cost = {
+		minerals = @base_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @base_energy_2
+		unity = @base_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_2
+		tile_building_resource_food_add = @base_adj_2
+		tile_building_resource_energy_add = @base_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3 = {
+	icon = "building_capital_3"
+	base_buildtime = @base_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @base_armies_3
+	
+	cost = {
+		minerals = @base_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @base_energy_3
+		unity = @base_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_3
+		tile_building_resource_food_add = @base_adj_3
+		tile_building_resource_energy_add = @base_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post = {
+	icon = "building_deployment_post"
+	base_buildtime = @base_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @base_armies_0
+	
+	cost = {
+		minerals = @base_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @base_energy_0
+		unity = @base_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}	
+		has_machine_capital_0 = no
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1 = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @base_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @base_armies_1
+	
+	cost = {
+		minerals = @base_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @base_energy_1
+		unity = @base_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_1
+		tile_building_resource_food_add = @base_adj_1
+		tile_building_resource_energy_add = @base_adj_1
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2 = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @base_time_2
+	is_listed = no
+	defense_armies = @base_armies_2
+	
+	cost = {
+		minerals = @base_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @base_energy_2
+		unity = @base_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_2
+		tile_building_resource_food_add = @base_adj_2
+		tile_building_resource_energy_add = @base_adj_2
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3 = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @base_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @base_armies_3
+	
+	cost = {
+		minerals = @base_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @base_energy_3
+		unity = @base_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @base_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @base_adj_3
+		tile_building_resource_food_add = @base_adj_3
+		tile_building_resource_energy_add = @base_adj_3
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+######################################################### CLASS B #####################################################################################################
+# Colony Shelter
+building_colony_shelter_b = {
+	icon = "building_colony_shelter"
+	base_buildtime = @b_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @b_armies_0
+	
+	cost = {
+		minerals = @b_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @b_energy_0
+		unity = @b_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}	
+		planet = {
+			NOT = {
+				has_building = building_colony_shelter_b
+				has_building = building_capital_1_b
+				has_building = building_capital_2_b
+				has_building = building_capital_3_b
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1_b
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1_b = {
+	icon = "building_capital_1"
+	base_buildtime = @b_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @b_armies_1
+	
+	cost = {
+		minerals = @b_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @b_energy_1
+		unity = @b_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_1
+		tile_building_resource_food_add = @b_adj_1
+		tile_building_resource_energy_add = @b_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2_b
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2_b = {
+	icon = "building_capital_2"
+	base_buildtime = @b_time_2
+	is_listed = no
+	defense_armies = @b_armies_2
+	
+	cost = {
+		minerals = @b_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @b_energy_2
+		unity = @b_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_2
+		tile_building_resource_food_add = @b_adj_2
+		tile_building_resource_energy_add = @b_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3_b
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3_b = {
+	icon = "building_capital_3"
+	base_buildtime = @b_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @b_armies_3
+	
+	cost = {
+		minerals = @b_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @b_energy_3
+		unity = @b_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_3
+		tile_building_resource_food_add = @b_adj_3
+		tile_building_resource_energy_add = @b_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post_b = {
+	icon = "building_deployment_post"
+	base_buildtime = @b_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @b_armies_0
+	
+	cost = {
+		minerals = @b_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @b_energy_0
+		unity = @b_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}	
+		planet = {
+			NOT = {
+				has_building = building_deployment_post_b
+				has_building = building_machine_capital_1_b
+				has_building = building_machine_capital_2_b
+				has_building = building_machine_capital_3_b
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1_b
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1_b = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @b_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @b_armies_1
+	
+	cost = {
+		minerals = @b_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @b_energy_1
+		unity = @b_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_1
+		tile_building_resource_food_add = @b_adj_1
+		tile_building_resource_energy_add = @b_adj_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2_b
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2_b = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @b_time_2
+	is_listed = no
+	defense_armies = @b_armies_2
+	
+	cost = {
+		minerals = @b_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @b_energy_2
+		unity = @b_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_2
+		tile_building_resource_food_add = @b_adj_2
+		tile_building_resource_energy_add = @b_adj_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3_b
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3_b = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @b_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @b_armies_3
+	
+	cost = {
+		minerals = @b_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @b_energy_3
+		unity = @b_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @b_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @b_adj_3
+		tile_building_resource_food_add = @b_adj_3
+		tile_building_resource_energy_add = @b_adj_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+######################################################### CLASS A #####################################################################################################
+# Colony Shelter
+building_colony_shelter_a = {
+	icon = "building_colony_shelter"
+	base_buildtime = @a_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @a_armies_0
+	
+	cost = {
+		minerals = @a_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @a_energy_0
+		unity = @a_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}	
+		planet = {
+			NOT = {
+				has_building = building_colony_shelter_a
+				has_building = building_capital_1_a
+				has_building = building_capital_2_a
+				has_building = building_capital_3_a
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1_a
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1_a = {
+	icon = "building_capital_1"
+	base_buildtime = @a_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @a_armies_1
+	
+	cost = {
+		minerals = @a_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @a_energy_1
+		unity = @a_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_1
+		tile_building_resource_food_add = @a_adj_1
+		tile_building_resource_energy_add = @a_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2_a
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2_a = {
+	icon = "building_capital_2"
+	base_buildtime = @a_time_2
+	is_listed = no
+	defense_armies = @a_armies_2
+	
+	cost = {
+		minerals = @a_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @a_energy_2
+		unity = @a_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_2
+		tile_building_resource_food_add = @a_adj_2
+		tile_building_resource_energy_add = @a_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3_a
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3_a = {
+	icon = "building_capital_3"
+	base_buildtime = @a_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @a_armies_3
+	
+	cost = {
+		minerals = @a_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @a_energy_3
+		unity = @a_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_3
+		tile_building_resource_food_add = @a_adj_3
+		tile_building_resource_energy_add = @a_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post_a = {
+	icon = "building_deployment_post"
+	base_buildtime = @a_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @a_armies_0
+	
+	cost = {
+		minerals = @a_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @a_energy_0
+		unity = @a_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}	
+		planet = {
+			NOT = {
+				has_building = building_deployment_post_a
+				has_building = building_machine_capital_1_a
+				has_building = building_machine_capital_2_a
+				has_building = building_machine_capital_3_a
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1_a
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1_a = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @a_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @a_armies_1
+	
+	cost = {
+		minerals = @a_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @a_energy_1
+		unity = @a_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_1
+		tile_building_resource_food_add = @a_adj_1
+		tile_building_resource_energy_add = @a_adj_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2_a
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2_a = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @a_time_2
+	is_listed = no
+	defense_armies = @a_armies_2
+	
+	cost = {
+		minerals = @a_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @a_energy_2
+		unity = @a_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_2
+		tile_building_resource_food_add = @a_adj_2
+		tile_building_resource_energy_add = @a_adj_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3_a
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3_a = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @a_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @a_armies_3
+	
+	cost = {
+		minerals = @a_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @a_energy_3
+		unity = @a_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @a_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @a_adj_3
+		tile_building_resource_food_add = @a_adj_3
+		tile_building_resource_energy_add = @a_adj_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+######################################################### CLASS F #####################################################################################################
+# Colony Shelter
+building_colony_shelter_f = {
+	icon = "building_colony_shelter"
+	base_buildtime = @f_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @f_armies_0
+	
+	cost = {
+		minerals = @f_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @f_energy_0
+		unity = @f_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+		planet = {
+			NOT = {
+				has_building = building_colony_shelter_f
+				has_building = building_capital_1_f
+				has_building = building_capital_2_f
+				has_building = building_capital_3_f
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1_f
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1_f = {
+	icon = "building_capital_1"
+	base_buildtime = @f_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @f_armies_1
+	
+	cost = {
+		minerals = @f_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @f_energy_1
+		unity = @f_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_1
+		tile_building_resource_food_add = @f_adj_1
+		tile_building_resource_energy_add = @f_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2_f
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2_f = {
+	icon = "building_capital_2"
+	base_buildtime = @f_time_2
+	is_listed = no
+	defense_armies = @f_armies_2
+	
+	cost = {
+		minerals = @f_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @f_energy_2
+		unity = @f_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_2
+		tile_building_resource_food_add = @f_adj_2
+		tile_building_resource_energy_add = @f_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3_f
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3_f = {
+	icon = "building_capital_3"
+	base_buildtime = @f_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @f_armies_3
+	
+	cost = {
+		minerals = @f_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @f_energy_3
+		unity = @f_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_3
+		tile_building_resource_food_add = @f_adj_3
+		tile_building_resource_energy_add = @f_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post_f = {
+	icon = "building_deployment_post"
+	base_buildtime = @f_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @f_armies_0
+	
+	cost = {
+		minerals = @f_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @f_energy_0
+		unity = @f_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+		planet = {
+			NOT = {
+				has_building = building_deployment_post_f
+				has_building = building_machine_capital_1_f
+				has_building = building_machine_capital_2_f
+				has_building = building_machine_capital_3_f
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1_f
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1_f = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @f_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @f_armies_1
+	
+	cost = {
+		minerals = @f_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @f_energy_1
+		unity = @f_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_1
+		tile_building_resource_food_add = @f_adj_1
+		tile_building_resource_energy_add = @f_adj_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2_f
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2_f = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @f_time_2
+	is_listed = no
+	defense_armies = @f_armies_2
+	
+	cost = {
+		minerals = @f_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @f_energy_2
+		unity = @f_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_2
+		tile_building_resource_food_add = @f_adj_2
+		tile_building_resource_energy_add = @f_adj_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3_f
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3_f = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @f_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @f_armies_3
+	
+	cost = {
+		minerals = @f_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @f_energy_3
+		unity = @f_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @f_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @f_adj_3
+		tile_building_resource_food_add = @f_adj_3
+		tile_building_resource_energy_add = @f_adj_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+######################################################### CLASS G #####################################################################################################
+# Colony Shelter
+building_colony_shelter_g = {
+	icon = "building_colony_shelter"
+	base_buildtime = @g_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @g_armies_0
+	
+	cost = {
+		minerals = @g_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @g_energy_0
+		unity = @g_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+		planet = {
+			NOT = {
+				has_building = building_colony_shelter_g
+				has_building = building_capital_1_g
+				has_building = building_capital_2_g
+				has_building = building_capital_3_g
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1_g
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1_g = {
+	icon = "building_capital_1"
+	base_buildtime = @g_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @g_armies_1
+	
+	cost = {
+		minerals = @g_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @g_energy_1
+		unity = @g_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_1
+		tile_building_resource_food_add = @g_adj_1
+		tile_building_resource_energy_add = @g_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2_g
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2_g = {
+	icon = "building_capital_2"
+	base_buildtime = @g_time_2
+	is_listed = no
+	defense_armies = @g_armies_2
+	
+	cost = {
+		minerals = @g_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @g_energy_2
+		unity = @g_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_2
+		tile_building_resource_food_add = @g_adj_2
+		tile_building_resource_energy_add = @g_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3_g
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3_g = {
+	icon = "building_capital_3"
+	base_buildtime = @g_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @g_armies_3
+	
+	cost = {
+		minerals = @g_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @g_energy_3
+		unity = @g_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_3
+		tile_building_resource_food_add = @g_adj_3
+		tile_building_resource_energy_add = @g_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post_g = {
+	icon = "building_deployment_post"
+	base_buildtime = @g_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @g_armies_0
+	
+	cost = {
+		minerals = @g_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @g_energy_0
+		unity = @g_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+		planet = {
+			NOT = {
+				has_building = building_deployment_post_g
+				has_building = building_machine_capital_1_g
+				has_building = building_machine_capital_2_g
+				has_building = building_machine_capital_3_g
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1_g
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1_g = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @g_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @g_armies_1
+	
+	cost = {
+		minerals = @g_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @g_energy_1
+		unity = @g_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_1
+		tile_building_resource_food_add = @g_adj_1
+		tile_building_resource_energy_add = @g_adj_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2_g
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2_g = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @g_time_2
+	is_listed = no
+	defense_armies = @g_armies_2
+	
+	cost = {
+		minerals = @g_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @g_energy_2
+		unity = @g_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_2
+		tile_building_resource_food_add = @g_adj_2
+		tile_building_resource_energy_add = @g_adj_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3_g
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3_g = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @g_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @g_armies_3
+	
+	cost = {
+		minerals = @g_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @g_energy_3
+		unity = @g_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @g_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @g_adj_3
+		tile_building_resource_food_add = @g_adj_3
+		tile_building_resource_energy_add = @g_adj_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+######################################################### CLASS K #####################################################################################################
+# Colony Shelter
+building_colony_shelter_k = {
+	icon = "building_colony_shelter"
+	base_buildtime = @k_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @k_armies_0
+	
+	cost = {
+		minerals = @k_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @k_energy_0
+		unity = @k_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+		planet = {
+			NOT = {
+				has_building = building_colony_shelter_k
+				has_building = building_capital_1_k
+				has_building = building_capital_2_k
+				has_building = building_capital_3_k
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_capital_1_k
+	}
+	
+	ai_replace = no
+}
+
+# Planetary Administration
+building_capital_1_k = {
+	icon = "building_capital_1"
+	base_buildtime = @k_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @k_armies_1
+	
+	cost = {
+		minerals = @k_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @k_energy_1
+		unity = @k_unity_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_1
+		tile_building_resource_food_add = @k_adj_1
+		tile_building_resource_energy_add = @k_adj_1
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_capital_2_k
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Capital
+building_capital_2_k = {
+	icon = "building_capital_2"
+	base_buildtime = @k_time_2
+	is_listed = no
+	defense_armies = @k_armies_2
+	
+	cost = {
+		minerals = @k_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @k_energy_2
+		unity = @k_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_2
+		tile_building_resource_food_add = @k_adj_2
+		tile_building_resource_energy_add = @k_adj_2
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_capital_3_k
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Empire Capital-Complex
+building_capital_3_k = {
+	icon = "building_capital_3"
+	base_buildtime = @k_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @k_armies_3
+	
+	cost = {
+		minerals = @k_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @k_energy_3
+		unity = @k_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_expansion_colonization_fever
+				has_swapped_tradition = tr_expansion_colonization_fever_machine
+				has_swapped_tradition = tr_expansion_colonization_fever_hive
+			}
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_3
+		tile_building_resource_food_add = @k_adj_3
+		tile_building_resource_energy_add = @k_adj_3
+	}
+	
+	planet_modifier = {
+		pop_government_ethic_attraction = 0.15
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			planet = { is_capital = no }
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}
+
+building_deployment_post_k = {
+	icon = "building_deployment_post"
+	base_buildtime = @k_time_0	
+	planet_unique = yes
+	capital = yes
+	level = 0
+	defense_armies = @k_armies_0
+	
+	cost = {
+		minerals = @k_build_cost_0
+	}
+	
+	produced_resources = {
+		energy = @k_energy_0
+		unity = @k_unity_0
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+		planet = {
+			NOT = {
+				has_building = building_deployment_post_k
+				has_building = building_machine_capital_1_k
+				has_building = building_machine_capital_2_k
+				has_building = building_machine_capital_3_k
+			}
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+
+	allow = {
+		always = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_1_k
+	}
+	
+	ai_replace = no
+}
+
+# Administrative Array
+building_machine_capital_1_k = {
+	icon = "building_machine_capital_1"
+	base_buildtime = @k_time_1	
+	planet_unique = yes
+	capital = yes
+	level = 1
+	defense_armies = @k_armies_1
+	
+	cost = {
+		minerals = @k_build_cost_1
+	}
+	
+	produced_resources = {
+		energy = @k_energy_1
+		unity = @k_energy_1
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_1
+		tile_building_resource_food_add = @k_adj_1
+		tile_building_resource_energy_add = @k_adj_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}	
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_5_pops = yes
+	}
+	
+	upgrades = {
+		building_machine_capital_2_k
+	}
+	
+	prerequisites = {
+		"tech_planetary_government"
+	}
+
+	ai_replace = no
+}
+
+# Planetary Processor 
+building_machine_capital_2_k = {
+	icon = "building_machine_capital_2"
+	base_buildtime = @k_time_2
+	is_listed = no
+	defense_armies = @k_armies_2
+	
+	cost = {
+		minerals = @k_build_cost_2
+	}
+	
+	produced_resources = {
+		energy = @k_energy_2
+		unity = @k_unity_2
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_2
+		tile_building_resource_food_add = @k_adj_2
+		tile_building_resource_energy_add = @k_adj_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		has_10_pops = yes
+	}
+	
+	planet_unique = yes
+	capital = yes
+	level = 2
+	
+	upgrades = {
+		building_machine_capital_3_k
+	}
+	
+	prerequisites = {
+		"tech_colonial_centralization"
+	}	
+	
+	ai_replace = no
+}
+
+# Primary Nexus
+building_machine_capital_3_k = {
+	icon = "building_machine_capital_3"
+	base_buildtime = @k_time_3
+	is_listed = no
+	planet_unique = yes
+	capital = yes
+	empire_unique = yes
+	level = 3
+	defense_armies = @k_armies_3
+	
+	cost = {
+		minerals = @k_build_cost_3
+	}
+	
+	produced_resources = {
+		energy = @k_energy_3
+		unity = @k_unity_3
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			has_non_swapped_tradition = tr_expansion_colonization_fever
+			has_swapped_tradition = tr_expansion_colonization_fever_machine
+			has_swapped_tradition = tr_expansion_colonization_fever_hive
+			resources = {
+				unity = @k_extra_unity
+			}
+		}
+	}
+	
+	adjacency_bonus = {
+		tile_building_resource_minerals_add = @k_adj_3
+		tile_building_resource_food_add = @k_adj_3
+		tile_building_resource_energy_add = @k_adj_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	prerequisites = {
+		"tech_galactic_administration"
+	}
+
+	ai_replace = no
+}

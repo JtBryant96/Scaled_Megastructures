@@ -1,0 +1,1625 @@
+@base_time_1 = 180
+@base_time_2 = 180
+@b_time_1 = 72000
+@b_time_2 = 72000
+@a_time_1 = 14400
+@a_time_2 = 14400
+@f_time_1 = 5400
+@f_time_2 = 5400
+@g_time_1 = 3600
+@g_time_2 = 3600
+@k_time_1 = 1800
+@k_time_2 = 1800
+
+@base_cost_1 = 300
+@base_cost_2 = 500
+@b_cost_1 = 120000
+@b_cost_2 = 200000
+@a_cost_1 = 24000
+@a_cost_2 = 40000
+@f_cost_1 = 9000
+@f_cost_2 = 15000
+@g_cost_1 = 6000
+@g_cost_2 = 10000
+@k_cost_1 = 3000
+@k_cost_2 = 5000
+
+@base_unity_1 = 1
+@base_unity_2 = 2
+@b_unity_1 = 400
+@b_unity_2 = 800
+@a_unity_1 = 80
+@a_unity_2 = 160
+@f_unity_1 = 30
+@f_unity_2 = 60
+@g_unity_1 = 20
+@g_unity_2 = 40
+@k_unity_1 = 10
+@k_unity_2 = 20
+
+@base_upkeep_1 = 2
+@base_upkeep_2 = 4
+@b_upkeep_1 = 800
+@b_upkeep_2 = 1600
+@a_upkeep_1 = 160
+@a_upkeep_2 = 320
+@f_upkeep_1 = 60
+@f_upkeep_2 = 120
+@g_upkeep_1 = 40
+@g_upkeep_2 = 80
+@k_upkeep_1 = 20
+@k_upkeep_2 = 40
+
+@base_armies_1 = 3
+@base_armies_2 = 5
+@b_armies_1 = 1200
+@b_armies_2 = 2000
+@a_armies_1 = 240
+@a_armies_2 = 400
+@f_armies_1 = 90
+@f_armies_2 = 150
+@g_armies_1 = 60
+@g_armies_2 = 100
+@k_armies_1 = 30
+@k_armies_2 = 50
+
+################################## BASE ###################################################################################################
+building_stronghold = {
+	icon = "building_stronghold"
+	base_buildtime = @base_time_1
+	is_listed = yes
+	defense_armies = @base_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	produced_resources = {
+		unity = @base_unity_1
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	
+	potential = {
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_1"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress = {
+	icon = "building_fortress"
+	base_buildtime = @base_time_2
+	is_listed = no
+	defense_armies = @base_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	produced_resources = {
+		unity = @base_unity_2
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+		
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"				
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+######################################################### CLASS B #####################################################################################################
+building_stronghold_b = {
+	icon = "building_stronghold"
+	base_buildtime = @b_time_1
+	is_listed = yes
+	defense_armies = @b_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	produced_resources = {
+		unity = @b_unity_1
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress_b
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1_b"
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_1_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress_b = {
+	icon = "building_fortress"
+	base_buildtime = @b_time_2
+	is_listed = no
+	defense_armies = @b_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	produced_resources = {
+		unity = @b_unity_2
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"						
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_3_b"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_3_b"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_b 
+							has_building = building_fortress_b 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+######################################################### CLASS A #####################################################################################################
+building_stronghold_a = {
+	icon = "building_stronghold"
+	base_buildtime = @a_time_1
+	is_listed = yes
+	defense_armies = @a_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	produced_resources = {
+		unity = @a_unity_1
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress_a
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	show_tech_unlock_if = { always = no }	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1_a"
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_1_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress_a = {
+	icon = "building_fortress"
+	base_buildtime = @a_time_2
+	is_listed = no
+	defense_armies = @a_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	produced_resources = {
+		unity = @a_unity_2
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"						
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_3_a"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_3_a"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_a 
+							has_building = building_fortress_a 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+######################################################### CLASS F #####################################################################################################
+building_stronghold_f = {
+	icon = "building_stronghold"
+	base_buildtime = @f_time_1
+	is_listed = yes
+	defense_armies = @f_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	produced_resources = {
+		unity = @f_unity_1
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress_f
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	show_tech_unlock_if = { always = no }
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1_f"
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_1_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress_f = {
+	icon = "building_fortress"
+	base_buildtime = @f_time_2
+	is_listed = no
+	defense_armies = @f_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	produced_resources = {
+		unity = @f_unity_2
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"						
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_3_f"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_3_f"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_f 
+							has_building = building_fortress_f 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+######################################################### CLASS G #####################################################################################################
+building_stronghold_g = {
+	icon = "building_stronghold"
+	base_buildtime = @g_time_1
+	is_listed = yes
+	defense_armies = @g_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	produced_resources = {
+		unity = @g_unity_1
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress_g
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	show_tech_unlock_if = { always = no }
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1_g"
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_1_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress_g = {
+	icon = "building_fortress"
+	base_buildtime = @g_time_2
+	is_listed = no
+	defense_armies = @g_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	produced_resources = {
+		unity = @g_unity_2
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"						
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_3_g"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_3_g"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_g 
+							has_building = building_fortress_g 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+######################################################### CLASS K #####################################################################################################
+building_stronghold_k = {
+	icon = "building_stronghold"
+	base_buildtime = @k_time_1
+	is_listed = yes
+	defense_armies = @k_armies_1
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	produced_resources = {
+		unity = @k_unity_1
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	upgrades = {
+		building_fortress_k
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	show_tech_unlock_if = { always = no }
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1_k"
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_1_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"					
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress_k = {
+	icon = "building_fortress"
+	base_buildtime = @k_time_2
+	is_listed = no
+	defense_armies = @k_armies_2
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	produced_resources = {
+		unity = @k_unity_2
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"						
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"					
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3_k"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3_k"						
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold_k 
+							has_building = building_fortress_k 
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}

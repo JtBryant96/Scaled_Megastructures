@@ -1,0 +1,320 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 450
+@b_cost = 180000
+@a_cost = 36000
+@f_cost = 13500
+@g_cost = 9000
+@k_cost = 4500
+
+@base_unity = 10
+@b_unity = 4000
+@a_unity = 800
+@f_unity = 300
+@g_unity = 200
+@k_unity = 100
+
+@base_upkeep = 4
+@b_upkeep = 1600
+@a_upkeep = 320
+@f_upkeep = 120
+@g_upkeep = 80
+@k_upkeep = 40
+
+building_psi_corps = {
+	icon = "building_psi_corps"
+	base_buildtime = @base_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_psi_corps_b = {
+	icon = "building_psi_corps"
+	base_buildtime = @b_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_psi_corps_a = {
+	icon = "building_psi_corps"
+	base_buildtime = @a_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_psi_corps_f = {
+	icon = "building_psi_corps"
+	base_buildtime = @f_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_psi_corps_g = {
+	icon = "building_psi_corps"
+	base_buildtime = @g_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}
+
+building_psi_corps_k = {
+	icon = "building_psi_corps"
+	base_buildtime = @k_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	country_modifier = {
+		planet_unrest_mult = -0.1
+		pop_government_ethic_attraction = 0.05
+	}
+	
+	potential = {
+		owner = {
+			has_ascension_perk = ap_mind_over_matter
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	ai_weight = {
+		weight = 20
+	}
+}

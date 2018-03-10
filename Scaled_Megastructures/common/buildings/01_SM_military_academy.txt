@@ -1,0 +1,1106 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 200
+@b_cost = 80000
+@a_cost = 16000
+@f_cost = 6000
+@g_cost = 4000
+@k_cost = 2000
+
+@base_output = 2
+@b_output = 800
+@a_output = 160
+@f_output = 60
+@g_output = 40
+@k_output = 20
+
+@base_upkeep = 2
+@b_upkeep = 800
+@a_upkeep = 160
+@f_upkeep = 60
+@g_upkeep = 40
+@k_upkeep = 20
+
+@base_armies = 2
+@b_armies = 800
+@a_armies = 160
+@f_armies = 60
+@g_armies = 40
+@k_armies = 20
+
+@base_army_speed = 0.5
+@b_army_speed = 200
+@a_army_speed = 40
+@f_army_speed = 15
+@g_army_speed = 10
+@k_army_speed = 5
+
+######################################################### BASE ###################################################################################################
+
+building_military_academy = {
+	icon = "building_military_academy"
+	base_buildtime = @base_time
+	planet_unique = yes
+	defense_armies = @base_armies
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @base_output
+		society_research = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @base_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory = {
+	icon = "building_war_factory"
+	base_buildtime = @base_time
+	planet_unique = yes
+	defense_armies = @base_armies
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	show_tech_unlock_if = {has_authority = auth_machine_intelligence}
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @base_output
+		society_research = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @base_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_military_academy_b = {
+	icon = "building_military_academy"
+	base_buildtime = @b_time
+	planet_unique = yes
+	defense_armies = @b_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @b_output
+		society_research = @b_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @b_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory_b = {
+	icon = "building_war_factory"
+	base_buildtime = @b_time
+	planet_unique = yes
+	defense_armies = @b_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @b_output
+		society_research = @b_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @b_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_military_academy_a = {
+	icon = "building_military_academy"
+	base_buildtime = @a_time
+	planet_unique = yes
+	defense_armies = @a_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @a_output
+		society_research = @a_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @a_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory_a = {
+	icon = "building_war_factory"
+	base_buildtime = @a_time
+	planet_unique = yes
+	defense_armies = @a_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @a_output
+		society_research = @a_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @a_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_military_academy_f = {
+	icon = "building_military_academy"
+	base_buildtime = @f_time
+	planet_unique = yes
+	defense_armies = @f_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @f_output
+		society_research = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @f_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory_f = {
+	icon = "building_war_factory"
+	base_buildtime = @f_time
+	planet_unique = yes
+	defense_armies = @f_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f 
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @f_output
+		society_research = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @f_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_military_academy_g = {
+	icon = "building_military_academy"
+	base_buildtime = @g_time
+	planet_unique = yes
+	defense_armies = @g_armies
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @g_output
+		society_research = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @g_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory_g = {
+	icon = "building_war_factory"
+	base_buildtime = @g_time
+	planet_unique = yes
+	defense_armies = @_armies
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g 
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @g_output
+		society_research = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @g_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_military_academy_k = {
+	icon = "building_military_academy"
+	base_buildtime = @k_time
+	planet_unique = yes
+	defense_armies = @k_armies
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+
+	
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @k_output
+		society_research = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @k_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		"tech_centralized_command"
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_military_academy
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_military_academy }
+			}
+		}	
+	}
+}
+
+building_war_factory_k = {
+	icon = "building_war_factory"
+	base_buildtime = @k_time
+	planet_unique = yes
+	defense_armies = @k_armies
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+
+	
+	potential = {
+		owner = { 
+			has_authority = auth_machine_intelligence
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k 
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		engineering_research = @k_output
+		society_research = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+	
+	planet_modifier = {
+		planet_army_build_speed_mult = @k_army_speed
+		planet_unrest_add = -10	
+	}
+	
+	prerequisites = {
+		tech_centralized_command
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { 
+				sector_controlled = yes 
+				NOT = { has_building = building_war_factory }
+			}
+		}	
+	}
+}

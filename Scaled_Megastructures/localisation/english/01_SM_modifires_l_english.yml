@@ -1,0 +1,16 @@
+﻿l_english:
+
+ RW_B:0 "Class B"
+ RW_B_desc:0 "Each pop will behave like it's 400."
+ 
+ RW_A:0 "Class A"
+ RW_A_desc:0 "Each pop will behave like it's 80."
+ 
+ RW_F:0 "Class F"
+ RW_F_desc:0 "Each pop will behave like it's 30."
+ 
+ RW_G:0 "Class G"
+ RW_G_desc:0 "Each pop will behave like it's 20."
+ 
+ RW_K:0 "Class K"
+ RW_K_desc:0 "Each pop will behave like it's 10."

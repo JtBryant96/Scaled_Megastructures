@@ -1,0 +1,1571 @@
+@base_time_1 = 360
+@base_time_2 = 180
+@b_time_1 = 144000
+@b_time_2 = 72000
+@a_time_1 = 28800
+@a_time_2 = 14400
+@f_time_1 = 10800
+@f_time_2 = 5400
+@g_time_1 = 7200
+@g_time_2 = 3600
+@k_time_1 = 3600
+@k_time_2 = 1800
+
+@base_cost_1 = 150
+@base_cost_2 = 200
+@b_cost_1 = 60000
+@b_cost_2 = 80000
+@a_cost_1 = 12000
+@a_cost_2 = 16000
+@f_cost_1 = 4500
+@f_cost_2 = 6000
+@g_cost_1 = 3000
+@g_cost_2 = 4000
+@k_cost_1 = 1500
+@k_cost_2 = 2000
+
+@base_sci_1 = 2
+@base_sci_2 = 4
+@b_sci_1 = 800
+@b_sci_2 = 1600
+@a_sci_1 = 160
+@a_sci_2 = 320
+@f_sci_1 = 60
+@f_sci_2 = 120
+@g_sci_1 = 40
+@g_sci_2 = 80
+@k_sci_1 = 20
+@k_sci_2 = 40
+
+@base_unity_1 = 1
+@base_unity_2 = 2
+@b_unity_1 = 400
+@b_unity_2 = 800
+@a_unity_1 = 80
+@a_unity_2 = 160
+@f_unity_1 = 30
+@f_unity_2 = 60
+@g_unity_1 = 20
+@g_unity_2 = 40
+@k_unity_1 = 10
+@k_unity_2 = 20
+
+@base_growth_l = 0.1
+@base_growth_g = 0.1
+@b_growth_l = 40
+@b_growth_g = 40
+@a_growth_l = 8
+@a_growth_g = 8
+@f_growth_l = 3
+@f_growth_g = 3
+@g_growth_l = 2
+@g_growth_g = 2
+@k_growth_l = 1
+@k_growth_g = 1
+
+@base_upkeep_1 = 1
+@base_upkeep_2 = 2
+@b_upkeep_1 = 400
+@b_upkeep_2 = 800
+@a_upkeep_1 = 80
+@a_upkeep_2 = 160
+@f_upkeep_1 = 30
+@f_upkeep_2 = 60
+@g_upkeep_1 = 20
+@g_upkeep_2 = 40
+@k_upkeep_1 = 40
+@k_upkeep_2 = 20
+
+######################################################### BASE ###################################################################################################
+building_clinic = {
+	icon = "building_clinic"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @base_sci_1
+		unity = @base_unity_1
+	}
+	
+	planet_modifier = {
+		pop_growth_speed = @base_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital = {
+	icon = "building_hospital"
+	base_buildtime = @base_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @base_sci_2
+		unity = @base_unity_2
+	}
+	
+	country_modifier = {
+		pop_growth_speed = @base_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @base_sci_1
+		unity = @base_unity_1
+	}
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @base_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @base_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @base_sci_2
+		unity = @base_unity_2
+	}
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @base_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_clinic_b = {
+	icon = "building_clinic"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @b_sci_1
+		unity = @b_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_growth_speed = @b_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital_b 
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital_b = {
+	icon = "building_hospital"
+	base_buildtime = @b_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @b_sci_2
+		unity = @b_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_growth_speed = @b_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot_b = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @b_sci_1
+		unity = @b_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @b_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant_b
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant_b = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @b_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @b_sci_2
+		unity = @b_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @b_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_clinic_a = {
+	icon = "building_clinic"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @a_sci_1
+		unity = @a_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_growth_speed = @a_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital_a 
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital_a = {
+	icon = "building_hospital"
+	base_buildtime = @a_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @a_sci_2
+		unity = @a_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_growth_speed = @a_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot_a = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @a_sci_1
+		unity = @a_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @a_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant_a
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant_a = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @a_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @a_sci_2
+		unity = @a_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @a_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_clinic_f = {
+	icon = "building_clinic"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @f_sci_1
+		unity = @f_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_growth_speed = @f_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital_f 
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital_f = {
+	icon = "building_hospital"
+	base_buildtime = @f_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @f_sci_2
+		unity = @f_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_growth_speed = @f_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot_f = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @f_sci_1
+		unity = @f_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @f_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant_f
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant_f = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @f_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @f_sci_2
+		unity = @f_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @f_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_clinic_g = {
+	icon = "building_clinic"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @g_sci_1
+		unity = @g_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_growth_speed = @g_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital_g 
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital_g = {
+	icon = "building_hospital"
+	base_buildtime = @g_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @g_sci_2
+		unity = @g_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_growth_speed = @g_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot_g = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @g_sci_1
+		unity = @g_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @g_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant_g
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant_g = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @g_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @g_sci_2
+		unity = @g_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @g_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_clinic_k = {
+	icon = "building_clinic"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @k_sci_1
+		unity = @k_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_growth_speed = @k_growth_l
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	upgrades = {
+		building_hospital_k 
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_hospital_k = {
+	icon = "building_hospital"
+	base_buildtime = @k_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @k_sci_2
+		unity = @k_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_growth_speed = @k_growth_g
+	}
+	
+	prerequisites = {
+		"tech_frontier_hospital"
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+		is_robot_tile_or_planet = no
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Spare Parts Depot
+building_spare_parts_depot_k = {
+	icon = "building_spare_parts_depot"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k 	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	produced_resources = {
+		society_research = @k_sci_1
+		unity = @k_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_robot_build_speed_mult = @k_growth_l
+	}
+	
+	prerequisites = {
+		"tech_modular_components"
+	}
+	
+	upgrades = {
+		building_unit_assembly_plant_k
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Unit Assembly Plant
+building_unit_assembly_plant_k = {
+	icon = "building_unit_assembly_plant"
+	base_buildtime = @k_time_2
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+
+	potential = {
+		
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	allow = {
+		AND = {
+			has_any_capital_2 = yes
+			has_20_pops = yes
+		}
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	produced_resources = {
+		society_research = @k_sci_2
+		unity = @k_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_robot_build_speed_mult = @k_growth_g
+	}
+	
+	prerequisites = {
+		"tech_intelligent_factories"
+	}
+	
+	ai_allow = {
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

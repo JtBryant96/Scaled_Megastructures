@@ -1,0 +1,497 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 250
+@b_cost = 100000
+@a_cost = 20000
+@f_cost = 7500
+@g_cost = 5000
+@k_cost = 2500
+
+@base_output = 2
+@b_output = 800
+@a_output = 160
+@f_output = 60
+@g_output = 40
+@k_output = 20
+
+building_neuro_electric_amplifier = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @base_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		minerals = @base_output
+		energy = @base_output
+	}
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			NOT = {
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_neuro_electric_amplifier_b = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @b_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		minerals = @b_output
+		energy = @b_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_neuro_electric_amplifier_a = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @a_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		minerals = @a_output
+		energy = @a_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_neuro_electric_amplifier_f = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @f_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		minerals = @f_output
+		energy = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_neuro_electric_amplifier_g = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @g_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		minerals = @g_output
+		energy = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+building_neuro_electric_amplifier_k = {
+	icon = "building_neuro_electric_amplifier"
+	base_buildtime = @k_time
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		minerals = @k_output
+		energy = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier_with_pop_trigger = {
+		key = building_neuro_electric_amplifier
+		potential = { has_trait = trait_cybernetic }
+		modifier = {
+			tile_resource_minerals_mult = 0.15
+			tile_resource_energy_mult = 0.15
+		}
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_cyber_comms
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { 
+				has_authority = auth_machine_intelligence
+				has_government = gov_machine_assimilator
+				has_swapped_tradition = tr_synchronicity_cyber_comms
+			}
+		}		
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+
+	prerequisites = {
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

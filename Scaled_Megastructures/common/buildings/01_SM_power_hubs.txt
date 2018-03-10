@@ -1,0 +1,1189 @@
+@base_time_1 = 180
+@base_time_2 = 180
+@b_time_1 = 72000
+@b_time_2 = 72000
+@a_time_1 = 14400
+@a_time_2 = 14400
+@f_time_1 = 5400
+@f_time_2 = 5400
+@g_time_1 = 3600
+@g_time_2 = 3600
+@k_time_1 = 2100
+@k_time_2 = 2100
+
+@base_cost_1 = 150
+@base_cost_2 = 200
+@b_cost_1 = 60000
+@b_cost_2 = 80000
+@a_cost_1 = 12000
+@a_cost_2 = 16000
+@f_cost_1 = 4500
+@f_cost_2 = 6000
+@g_cost_1 = 3000
+@g_cost_2 = 4000
+@k_cost_1 = 1500
+@k_cost_2 = 2000
+
+@base_output_1 = 2
+@base_output_2 = 4
+@b_output_1 = 800
+@b_output_2 = 1600
+@a_output_1 = 160
+@a_output_2 = 320
+@f_output_1 = 60
+@f_output_2 = 120
+@g_output_1 = 40
+@g_output_2 = 80
+@k_output_1 = 20
+@k_output_2 = 40
+
+@base_unity = 2
+@b_unity = 800
+@a_unity = 160
+@f_unity = 60
+@g_unity = 40
+@k_unity = 20
+
+######################################################### BASE ###################################################################################################
+building_power_hub_1 = {
+	icon = "building_power_hub_1"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @base_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @base_output_1
+	}
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2 = {
+	icon = "building_power_hub_2"
+	base_buildtime = @base_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @base_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @base_output_2
+	}
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1 = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @base_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1"
+					has_building = "building_power_hub_2"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @base_output_2
+	}
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_power_hub_1_b = {
+	icon = "building_power_hub_1"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @b_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1_b"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @b_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2_b
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2_b = {
+	icon = "building_power_hub_2"
+	base_buildtime = @b_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @b_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @b_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1_b = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @b_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b 
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1_b"
+					has_building = "building_power_hub_2_b"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @b_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_power_hub_1_a = {
+	icon = "building_power_hub_1"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @a_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1_a"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @a_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2_a 
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2_a = {
+	icon = "building_power_hub_2"
+	base_buildtime = @a_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @a_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @a_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1_a = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @a_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a 
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1_a"
+					has_building = "building_power_hub_2_a"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @a_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_power_hub_1_f = {
+	icon = "building_power_hub_1"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f 
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @f_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1_f"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @f_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2_f 
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2_f = {
+	icon = "building_power_hub_2"
+	base_buildtime = @f_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @f_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @f_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1_f = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @f_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f 
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1_f"
+					has_building = "building_power_hub_2_f"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @f_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_power_hub_1_g = {
+	icon = "building_power_hub_1"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g 
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @g_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1_g"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @g_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2_g 
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2_g = {
+	icon = "building_power_hub_2"
+	base_buildtime = @g_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @g_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @g_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1_g = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @g_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g 
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1_g"
+					has_building = "building_power_hub_2_g"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @g_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_power_hub_1_k = {
+	icon = "building_power_hub_1"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k 
+		}
+	}
+	
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @k_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOT = {
+					has_building = "building_akx_worm_1_k"
+				}
+			}
+		}
+	}
+	
+	produced_resources = {
+		energy = @k_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.10
+	}
+	
+	upgrades = {
+		building_power_hub_2_k 
+	}
+	
+	prerequisites = {
+		"tech_power_hub_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}		
+	}	
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_hub_2_k = {
+	icon = "building_power_hub_2"
+	base_buildtime = @k_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+		
+	produced_resource_trigger = {
+		modifier = {
+			OR = {
+				has_non_swapped_tradition = tr_prosperity_pursuit_of_profit
+				has_swapped_tradition = tr_prosperity_pursuit_of_profit_machine
+			}
+			resources = {
+				unity = @k_unity
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @k_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.20
+	}
+	
+	prerequisites = {
+		"tech_power_hub_2"
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_akx_worm_1_k = {
+	icon = "building_akx_worm_1"
+	base_buildtime = @k_time_2
+	is_listed = yes
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k 
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_power_hub_absence"
+			planet = {
+				NOR = {
+					has_building = "building_power_hub_1_k"
+					has_building = "building_power_hub_2_k"
+				}
+			}
+		}
+	}
+
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+		pop_happiness = -0.05
+	}
+
+	produced_resources = {
+		energy = @k_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_akx_worm_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

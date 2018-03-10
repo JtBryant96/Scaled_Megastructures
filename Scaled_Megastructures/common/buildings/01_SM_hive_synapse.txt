@@ -1,0 +1,359 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 250
+@b_cost = 100000
+@a_cost = 20000
+@f_cost = 7500
+@g_cost = 5000
+@k_cost = 2500
+
+@base_output = 2
+@b_output = 800
+@a_output = 160
+@f_output = 60
+@g_output = 40
+@k_output = 20
+
+@base_unity = 2
+@b_unity = 2
+@a_unity = 2
+@f_unity = 2
+@g_unity = 2
+@k_unity = 2
+
+building_hive_synapse = {
+	icon = "building_hive_synapse"
+	base_buildtime = @base_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			NOT = {
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @base_output
+		unity = @base_unity
+	}
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_hive_synapse_b = {
+	icon = "building_hive_synapse"
+	base_buildtime = @b_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @b_output
+		unity = @b_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+building_hive_synapse_a = {
+	icon = "building_hive_synapse"
+	base_buildtime = @a_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @a_output
+		unity = @a_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_hive_synapse_f = {
+	icon = "building_hive_synapse"
+	base_buildtime = @f_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @f_output
+		unity = @f_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_hive_synapse_g = {
+	icon = "building_hive_synapse"
+	base_buildtime = @g_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @g_output
+		unity = @g_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_hive_synapse_k = {
+	icon = "building_hive_synapse"
+	base_buildtime = @k_cost
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	potential = {
+		owner = {
+			has_swapped_tradition = tr_synchronicity_hive_mind_synapse
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+	
+	destroy_if = {
+		exists = owner
+		owner = { NOT = { has_swapped_tradition = tr_synchronicity_hive_mind_synapse } }
+	}
+	
+	produced_resources = {
+		energy = @k_output
+		unity = @k_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_resource_output = 0.05
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no			
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

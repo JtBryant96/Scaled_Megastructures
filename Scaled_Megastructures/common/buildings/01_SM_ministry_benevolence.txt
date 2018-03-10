@@ -1,0 +1,378 @@
+@base_time = 720
+@b_time = 288000
+@a_time = 57600
+@f_time = 21600
+@g_time = 14400
+@k_time = 7200
+
+@base_cost = 300
+@b_cost = 120000
+@a_cost = 24000
+@f_cost = 9000
+@g_cost = 6000
+@k_cost = 3000
+
+@base_unity = 6
+@b_unity = 2400
+@a_unity = 480
+@f_unity = 180
+@g_unity = 120
+@k_unity = 60
+
+@base_upkeep = 7
+@b_upkeep = 2800
+@a_upkeep = 560
+@f_upkeep = 210
+@g_upkeep = 140
+@k_upkeep = 70
+
+@influence = 150
+
+building_ministry_benevolence = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @base_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+building_ministry_benevolence_b = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @b_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+building_ministry_benevolence_a = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @a_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+building_ministry_benevolence_f = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @f_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+building_ministry_benevolence_g = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @g_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}
+
+building_ministry_benevolence_k = {
+	icon = "building_ministry_benevolence"
+	base_buildtime = @k_time
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+		influence = @influence
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		pop_government_ethic_attraction = 0.10
+		planet_unrest_mult = -0.1
+	}
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			is_capital = yes
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+
+	destroy_if = {
+		OR = {
+			planet = { is_capital = no }
+			AND = {
+				exists = owner
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_weight = {
+		weight = 20	
+	}
+}

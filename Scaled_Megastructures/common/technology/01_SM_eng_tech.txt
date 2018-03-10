@@ -1,0 +1,28 @@
+@tier1cost2 = 640
+
+@tier1weight2 = 95
+
+tech_localstructure = {
+	cost = @tier1cost2
+	area = engineering
+	tier = 1
+	category = { materials }
+	prerequisites = { "tech_assembly_pattern" "tech_colonization_1" }
+	weight = @tier1weight2
+	icon = "tech_assembly_pattern"
+		
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_prosperity_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_materials"
+			}
+		}
+	}
+}

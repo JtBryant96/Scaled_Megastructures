@@ -1,0 +1,1287 @@
+@base_time_1 = 210
+@base_time_2 = 180
+@base_time_3 = 180
+@base_time_4 = 180
+@base_time_5 = 180
+@b_time_1 = 84000
+@b_time_2 = 72000
+@b_time_3 = 72000
+@b_time_4 = 72000
+@b_time_5 = 72000
+@a_time_1 = 16800
+@a_time_2 = 14400
+@a_time_3 = 14400
+@a_time_4 = 14400
+@a_time_5 = 14400
+@f_time_1 = 6300
+@f_time_2 = 5400
+@f_time_3 = 5400
+@f_time_4 = 5400
+@f_time_5 = 5400
+@g_time_1 = 4200
+@g_time_2 = 3600
+@g_time_3 = 3600
+@g_time_4 = 3600
+@g_time_5 = 3600
+@k_time_1 = 2100
+@k_time_2 = 1800
+@k_time_3 = 1800
+@k_time_4 = 1800
+@k_time_5 = 1800
+
+@base_cost_1 = 60
+@base_cost_2 = 90
+@base_cost_3 = 120
+@base_cost_4 = 150
+@base_cost_5 = 180
+@b_cost_1 = 24000
+@b_cost_2 = 36000
+@b_cost_3 = 48000
+@b_cost_4 = 60000
+@b_cost_5 = 72000
+@a_cost_1 = 4800
+@a_cost_2 = 7200
+@a_cost_3 = 9600
+@a_cost_4 = 12000
+@a_cost_5 = 14400
+@f_cost_1 = 1800
+@f_cost_2 = 2700
+@f_cost_3 = 3600
+@f_cost_4 = 4500
+@f_cost_5 = 5400
+@g_cost_1 = 1200
+@g_cost_2 = 1800
+@g_cost_3 = 2400
+@g_cost_4 = 3000
+@g_cost_5 = 3600
+@k_cost_1 = 600
+@k_cost_2 = 900
+@k_cost_3 = 1200
+@k_cost_4 = 1500
+@k_cost_5 = 1800
+
+@base_output_1 = 2
+@base_output_2 = 3
+@base_output_3 = 4
+@base_output_4 = 5
+@base_output_5 = 8
+@b_output_1 = 800
+@b_output_2 = 1200
+@b_output_3 = 1600
+@b_output_4 = 2000
+@b_output_5 = 3200
+@a_output_1 = 160
+@a_output_2 = 240
+@a_output_3 = 320
+@a_output_4 = 400
+@a_output_5 = 640
+@f_output_1 = 60
+@f_output_2 = 90
+@f_output_3 = 120
+@f_output_4 = 150
+@f_output_5 = 240
+@g_output_1 = 40
+@g_output_2 = 60
+@g_output_3 = 80
+@g_output_4 = 100
+@g_output_5 = 160
+@k_output_1 = 20
+@k_output_2 = 30
+@k_output_3 = 40
+@k_output_4 = 50
+@k_output_5 = 80
+
+################################## BASE ###################################################################################################
+building_power_plant_1 = {
+	icon = "building_power_plant_1"
+	base_buildtime = @base_time_1
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+	
+	produced_resources = {
+		energy = @base_output_1
+	}
+	
+	upgrades = {
+		building_power_plant_2
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2 = {
+	icon = "building_power_plant_2"
+	base_buildtime = @base_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @base_output_2
+	}
+	
+	upgrades = {
+		building_power_plant_3
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3 = {
+	icon = "building_power_plant_3"
+	base_buildtime = @base_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @base_output_3
+	}
+	
+	upgrades = {
+		building_power_plant_4
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4 = {
+	icon = "building_power_plant_4"
+	base_buildtime = @base_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @base_output_4
+	}
+	
+	upgrades = {
+		building_power_plant_5
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5 = {
+	icon = "building_power_plant_5"
+	base_buildtime = @base_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_5
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @base_output_5
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+######################################################### CLASS B #####################################################################################################
+building_power_plant_1_b = {
+	icon = "building_power_plant_1"
+	base_buildtime = @b_time_1
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+	
+	produced_resources = {
+		energy = @b_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_2_b
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2_b = {
+	icon = "building_power_plant_2"
+	base_buildtime = @b_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @b_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_3_b
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3_b = {
+	icon = "building_power_plant_3"
+	base_buildtime = @b_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @b_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_4_b
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4_b = {
+	icon = "building_power_plant_4"
+	base_buildtime = @b_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @b_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_5_b
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5_b = {
+	icon = "building_power_plant_5"
+	base_buildtime = @b_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_5
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @b_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+######################################################### CLASS A #####################################################################################################
+building_power_plant_1_a = {
+	icon = "building_power_plant_1"
+	base_buildtime = @a_time_1
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	produced_resources = {
+		energy = @a_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_2_a
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2_a = {
+	icon = "building_power_plant_2"
+	base_buildtime = @a_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @a_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_3_a
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3_a = {
+	icon = "building_power_plant_3"
+	base_buildtime = @a_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_3
+	}
+		
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @a_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_4_a
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4_a = {
+	icon = "building_power_plant_4"
+	base_buildtime = @a_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_4
+	}
+
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @a_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_5_a
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5_a = {
+	icon = "building_power_plant_5"
+	base_buildtime = @a_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_5
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @a_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+######################################################### CLASS F #####################################################################################################
+building_power_plant_1_f = {
+	icon = "building_power_plant_1"
+	base_buildtime = @f_time_1
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	produced_resources = {
+		energy = @f_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_2_f
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2_f = {
+	icon = "building_power_plant_2"
+	base_buildtime = @f_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @f_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_3_f
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3_f = {
+	icon = "building_power_plant_3"
+	base_buildtime = @f_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @f_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_4_f
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4_f = {
+	icon = "building_power_plant_4"
+	base_buildtime = @f_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @f_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_5_f
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5_f = {
+	icon = "building_power_plant_5"
+	base_buildtime = @f_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_5
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @f_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+######################################################### CLASS G #####################################################################################################
+building_power_plant_1_g = {
+	icon = "building_power_plant_1"
+	base_buildtime = @g_time_1
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	produced_resources = {
+		energy = @g_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_2_g
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2_g = {
+	icon = "building_power_plant_2"
+	base_buildtime = @g_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @g_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_3_g
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3_g = {
+	icon = "building_power_plant_3"
+	base_buildtime = @g_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @g_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_4_g
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4_g = {
+	icon = "building_power_plant_4"
+	base_buildtime = @g_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @g_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_5_g
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5_g = {
+	icon = "building_power_plant_5"
+	base_buildtime = @g_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_5
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @g_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+######################################################### CLASS K #####################################################################################################
+building_power_plant_1_k = {
+	icon = "building_power_plant_1"
+	base_buildtime = @k_time_1
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	produced_resources = {
+		energy = @k_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_2_k
+	}
+	
+	prerequisites = {
+		"tech_power_plant_1"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}			
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_2_k = {
+	icon = "building_power_plant_2"
+	base_buildtime = @k_time_2
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+		
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		energy = @k_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_3_k
+	}
+
+	prerequisites = {
+		"tech_power_plant_2"
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}	
+}
+
+building_power_plant_3_k = {
+	icon = "building_power_plant_3"
+	base_buildtime = @k_time_3
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @k_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_4_k
+	}
+	
+	prerequisites = {
+		"tech_power_plant_3"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes			
+		}
+	}
+}
+
+building_power_plant_4_k = {
+	icon = "building_power_plant_4"
+	base_buildtime = @k_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		energy = @k_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	upgrades = {
+		building_power_plant_5_k
+	}
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}
+
+building_power_plant_5_k = {
+	icon = "building_power_plant_5"
+	base_buildtime = @k_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_5
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		energy = @k_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	prerequisites = {
+		"tech_power_plant_4"
+	}	
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			is_slave_tile_or_planet = yes		
+		}
+	}
+}

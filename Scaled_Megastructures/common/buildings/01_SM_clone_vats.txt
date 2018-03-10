@@ -1,0 +1,501 @@
+@base_time = 360
+@b_time = 144000
+@a_time = 28800
+@f_time = 10800
+@g_time = 7200
+@k_time = 3600
+
+@base_cost = 200
+@b_cost = 80000
+@a_cost = 16000
+@f_cost = 6000
+@g_cost = 4000
+@k_cost = 2000
+
+@base_output = 4
+@b_output = 1600
+@a_output = 320
+@f_output = 120
+@g_output = 80
+@k_output = 40
+
+@base_upkeep = 2
+@b_upkeep = 800
+@a_upkeep = 160
+@f_upkeep = 60
+@g_upkeep = 40
+@k_upkeep = 20
+
+building_clone_vats = {
+	icon = "building_clone_vats"
+	base_buildtime = @base_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	produced_resources = {
+		society_research = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	potential = {
+		planet = {
+			NOT = {
+				is_planet_class = pc_habitat
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}	
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}
+
+building_clone_vats_b = {
+	icon = "building_clone_vats"
+	base_buildtime = @b_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	produced_resources = {
+		society_research = @b_output
+	}
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	show_tech_unlock_if = { always = no }
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}
+
+building_clone_vats_a = {
+	icon = "building_clone_vats"
+	base_buildtime = @a_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	produced_resources = {
+		society_research = @a_output
+	}
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	show_tech_unlock_if = { always = no }
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}
+
+building_clone_vats_f = {
+	icon = "building_clone_vats"
+	base_buildtime = @f_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	produced_resources = {
+		society_research = @f_output
+	}
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	show_tech_unlock_if = { always = no }
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}
+
+building_clone_vats_g = {
+	icon = "building_clone_vats"
+	base_buildtime = @g_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	produced_resources = {
+		society_research = @g_output
+	}
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	show_tech_unlock_if = { always = no }
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}
+building_clone_vats_k = {
+	icon = "building_clone_vats"
+	base_buildtime = @k_time	
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	produced_resources = {
+		society_research = @k_output
+	}
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	show_tech_unlock_if = { always = no }
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}	
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	prerequisites = {
+		"tech_gene_banks"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		
+		NOT = {
+			planet = {
+				owner = {
+					any_owned_planet = {
+						NOT = { is_same_value = from }
+						has_building = building_clone_vats
+					}				
+				}
+			}
+		}
+		
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			weight = 0
+			from = {
+				owner = {
+					NOT = {
+						has_technology = tech_gene_banks
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+						}
+					}
+				}
+				NOT = { has_building = building_clone_vats }
+			}
+		}
+	}
+}

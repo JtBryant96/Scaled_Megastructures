@@ -1,0 +1,264 @@
+@base_time = 720
+@b_time = 288000
+@a_time = 57600
+@f_time = 21600
+@g_time = 14400
+@k_time = 7200
+
+@base_cost = 500
+@b_cost = 200000
+@a_cost = 40000
+@f_cost = 15000
+@g_cost = 10000
+@k_cost = 5000
+
+@base_output = 40
+@b_output = 16000
+@a_output = 3200
+@f_output = 1200
+@g_output = 800
+@k_output = 400
+
+@base_upkeep = 50
+@b_upkeep = 20000
+@a_upkeep = 4000
+@f_upkeep = 1500
+@g_upkeep = 1000
+@k_upkeep = 500
+
+######################################################### BASE ###################################################################################################
+building_replicator = {
+	icon = "building_replicator"
+	base_buildtime = @base_time
+	
+	cost = {
+		minerals = @base_cost
+	}
+	
+	potential = {
+		planet = {
+			NOT = {
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k }	
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @base_output
+	}
+	
+	required_resources = {
+		energy = @base_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_replicator_b = {
+	icon = "building_replicator"
+	base_buildtime = @b_time
+	
+	cost = {
+		minerals = @b_cost
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @b_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_replicator_a = {
+	icon = "building_replicator"
+	base_buildtime = @a_time
+	
+	cost = {
+		minerals = @a_cost
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @a_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_replicator_f = {
+	icon = "building_replicator"
+	base_buildtime = @f_time
+	
+	cost = {
+		minerals = @f_cost
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @f_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_replicator_g = {
+	icon = "building_replicator"
+	base_buildtime = @g_time
+	
+	cost = {
+		minerals = @g_cost
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @g_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_replicator_k = {
+	icon = "building_replicator"
+	base_buildtime = @k_time
+	
+	cost = {
+		minerals = @k_cost
+	}
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = @k_output
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
+	}
+}

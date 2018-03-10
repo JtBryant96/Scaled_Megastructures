@@ -1,0 +1,287 @@
+#the ring worlds don't generate resources
+
+
+betharian_power_plant = {
+	base_buildtime = 240
+	icon = "building_betharian_power_plant_1"
+	
+	cost = {
+		minerals = 150
+	}
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat }	
+		}
+	}
+	
+	produced_resources = {
+		energy = 10
+	}
+	
+	prerequisites = {
+		"tech_mine_betharian"
+	}
+	
+	allow = {
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_authority = auth_machine_intelligence }
+				}
+			}
+			AND = {
+				custom_tooltip = {
+					fail_text = "requires_building_capital_1"
+					planet = {
+						OR = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_1_b"
+							has_building = "building_capital_1_a"
+							has_building = "building_capital_1_f"
+							has_building = "building_capital_1_g"
+							has_building = "building_capital_1_k"
+							has_building = "building_capital_2"
+							has_building = "building_capital_2_b"
+							has_building = "building_capital_2_a"
+							has_building = "building_capital_2_f"
+							has_building = "building_capital_2_g"
+							has_building = "building_capital_2_k"
+							has_building = "building_capital_3"
+							has_building = "building_capital_3_b"
+							has_building = "building_capital_3_a"
+							has_building = "building_capital_3_f"
+							has_building = "building_capital_3_g"
+							has_building = "building_capital_3_k"
+						}
+					}
+				}
+				custom_tooltip = {
+					fail_text = "requires_betharian_stone"
+					tile = {
+						has_resource = {
+							type = sr_betharian
+							amount > 0
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			AND = {
+				custom_tooltip = {
+					fail_text = "requires_building_machine_capital_1"
+					planet = {
+						OR = {
+							has_building = "building_machine_capital_1"
+							has_building = "building_machine_capital_1_b"
+							has_building = "building_machine_capital_1_a"
+							has_building = "building_machine_capital_1_f"
+							has_building = "building_machine_capital_1_g"
+							has_building = "building_machine_capital_1_k"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_2_b"
+							has_building = "building_machine_capital_2_a"
+							has_building = "building_machine_capital_2_f"
+							has_building = "building_machine_capital_2_g"
+							has_building = "building_machine_capital_2_k"
+							has_building = "building_machine_capital_3"
+							has_building = "building_machine_capital_3_b"
+							has_building = "building_machine_capital_3_a"
+							has_building = "building_machine_capital_3_f"
+							has_building = "building_machine_capital_3_g"
+							has_building = "building_machine_capital_3_k"
+						}
+					}
+				}
+				custom_tooltip = {
+					fail_text = "requires_betharian_stone"
+					tile = {
+						has_resource = {
+							type = sr_betharian
+							amount > 0
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	ai_allow = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 10	
+	}
+}
+
+
+building_xeno_zoo = {
+	base_buildtime = 240
+	
+	cost = {
+		minerals = 150
+	}
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = { 
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = { is_planet_class = pc_habitat }
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}	
+	
+	required_resources = {
+		energy = 1
+	}
+	
+	produced_resources = {
+		unity = 4
+		society_research = 4
+	}
+	
+	planet_modifier = {
+		pop_citizen_happiness = 0.05
+		planet_migration_all_pull = 0.25
+	}
+	
+	allow = {
+		AND = {
+			custom_tooltip = {
+				fail_text = "requires_building_capital_1"
+				planet = {
+					OR = {
+						has_building = "building_capital_1"
+						has_building = "building_capital_1_b"
+						has_building = "building_capital_1_a"
+						has_building = "building_capital_1_f"
+						has_building = "building_capital_1_g"
+						has_building = "building_capital_1_k"
+						has_building = "building_capital_2"
+						has_building = "building_capital_2_b"
+						has_building = "building_capital_2_a"
+						has_building = "building_capital_2_f"
+						has_building = "building_capital_2_g"
+						has_building = "building_capital_2_k"
+						has_building = "building_capital_3"
+						has_building = "building_capital_3_b"
+						has_building = "building_capital_3_a"
+						has_building = "building_capital_3_f"
+						has_building = "building_capital_3_g"
+						has_building = "building_capital_3_k"
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_alien_pets"
+				tile = {
+					has_resource = {
+						type = sr_alien_pets
+						amount > 0
+					}
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_alien_life_studies"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+# Animal Evaluation Laboratory
+building_animal_evaluation_laboratory = {
+	base_buildtime = 240
+	
+	cost = {
+		minerals = 150
+	}
+	
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
+
+	potential = {
+		owner = { has_authority = auth_machine_intelligence }
+		planet = {
+			NOT = { is_planet_class = pc_habitat }
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}		
+	}
+	
+	required_resources = {
+		energy = 1
+	}
+	
+	produced_resources = {
+		unity = 4
+		society_research = 2
+	}
+	
+	allow = {
+		AND = {
+			custom_tooltip = {
+				fail_text = "requires_building_machine_capital_1"
+				planet = {
+					OR = {
+						has_building = "building_machine_capital_1"
+						has_building = "building_machine_capital_1_b"
+						has_building = "building_machine_capital_1_a"
+						has_building = "building_machine_capital_1_f"
+						has_building = "building_machine_capital_1_g"
+						has_building = "building_machine_capital_1_k"
+						has_building = "building_machine_capital_2"
+						has_building = "building_machine_capital_2_b"
+						has_building = "building_machine_capital_2_a"
+						has_building = "building_machine_capital_2_f"
+						has_building = "building_machine_capital_2_g"
+						has_building = "building_machine_capital_2_k"
+						has_building = "building_machine_capital_3"
+						has_building = "building_machine_capital_3_b"
+						has_building = "building_machine_capital_3_a"
+						has_building = "building_machine_capital_3_f"
+						has_building = "building_machine_capital_3_g"
+						has_building = "building_machine_capital_3_k"
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_alien_pets"
+				tile = {
+					has_resource = {
+						type = sr_alien_pets
+						amount > 0
+					}
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_alien_life_studies"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}

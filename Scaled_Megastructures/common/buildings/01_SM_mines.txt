@@ -1,0 +1,1479 @@
+@base_time_1 = 210
+@base_time_2 = 180
+@base_time_3 = 180
+@base_time_4 = 180
+@base_time_5 = 180
+@b_time_1 = 84000
+@b_time_2 = 72000
+@b_time_3 = 72000
+@b_time_4 = 72000
+@b_time_5 = 72000
+@a_time_1 = 16800
+@a_time_2 = 14400
+@a_time_3 = 14400
+@a_time_4 = 14400
+@a_time_5 = 14400
+@f_time_1 = 6300
+@f_time_2 = 5400
+@f_time_3 = 5400
+@f_time_4 = 5400
+@f_time_5 = 5400
+@g_time_1 = 4200
+@g_time_2 = 3600
+@g_time_3 = 3600
+@g_time_4 = 3600
+@g_time_5 = 3600
+@k_time_1 = 2100
+@k_time_2 = 1800
+@k_time_3 = 1800
+@k_time_4 = 1800
+@k_time_5 = 1800
+
+@base_cost_1 = 60
+@base_cost_2 = 90
+@base_cost_3 = 120
+@base_cost_4 = 150
+@base_cost_5 = 180
+@b_cost_1 = 24000
+@b_cost_2 = 36000
+@b_cost_3 = 48000
+@b_cost_4 = 60000
+@b_cost_5 = 72000
+@a_cost_1 = 4800
+@a_cost_2 = 7200
+@a_cost_3 = 9600
+@a_cost_4 = 12000
+@a_cost_5 = 14400
+@f_cost_1 = 1800
+@f_cost_2 = 2700
+@f_cost_3 = 3600
+@f_cost_4 = 4500
+@f_cost_5 = 5400
+@g_cost_1 = 1200
+@g_cost_2 = 1800
+@g_cost_3 = 2400
+@g_cost_4 = 3000
+@g_cost_5 = 3600
+@k_cost_1 = 600
+@k_cost_2 = 900
+@k_cost_3 = 1200
+@k_cost_4 = 1500
+@k_cost_5 = 1800
+
+@base_output_1 = 2
+@base_output_2 = 3
+@base_output_3 = 4
+@base_output_4 = 5
+@base_output_5 = 8
+@b_output_1 = 800
+@b_output_2 = 1200
+@b_output_3 = 1600
+@b_output_4 = 2000
+@b_output_5 = 3200
+@a_output_1 = 160
+@a_output_2 = 240
+@a_output_3 = 320
+@a_output_4 = 400
+@a_output_5 = 640
+@f_output_1 = 60
+@f_output_2 = 90
+@f_output_3 = 120
+@f_output_4 = 150
+@f_output_5 = 240
+@g_output_1 = 40
+@g_output_2 = 60
+@g_output_3 = 80
+@g_output_4 = 100
+@g_output_5 = 160
+@k_output_1 = 20
+@k_output_2 = 30
+@k_output_3 = 40
+@k_output_4 = 50
+@k_output_5 = 80
+
+@base_upkeep_1 = 1
+@base_upkeep_2 = 1.5
+@base_upkeep_3 = 2
+@base_upkeep_4 = 2.5
+@base_upkeep_5 = 3
+@b_upkeep_1 = 400
+@b_upkeep_2 = 600
+@b_upkeep_3 = 800
+@b_upkeep_4 = 1000
+@b_upkeep_5 = 1200
+@a_upkeep_1 = 80
+@a_upkeep_2 = 120
+@a_upkeep_3 = 160
+@a_upkeep_4 = 200
+@a_upkeep_5 = 240
+@f_upkeep_1 = 30
+@f_upkeep_2 = 45
+@f_upkeep_3 = 60
+@f_upkeep_4 = 75
+@f_upkeep_5 = 90
+@g_upkeep_1 = 20
+@g_upkeep_2 = 30
+@g_upkeep_3 = 40
+@g_upkeep_4 = 50
+@g_upkeep_5 = 60
+@k_upkeep_1 = 10
+@k_upkeep_2 = 15
+@k_upkeep_3 = 20
+@k_upkeep_4 = 25
+@k_upkeep_5 = 30
+
+######################################################### BASE ###################################################################################################
+building_mining_network_1 = {
+	tags = { mining_network }
+
+	base_buildtime = @base_time_1
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat
+					is_planet_class = pc_ringworld_habitable_b
+					is_planet_class = pc_ringworld_habitable_a
+					is_planet_class = pc_ringworld_habitable_f
+					is_planet_class = pc_ringworld_habitable_g
+					is_planet_class = pc_ringworld_habitable_k
+					is_planet_class = pc_ringworld_habitable_m}	
+		}
+	}
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @base_output_1
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2 = {
+	tags = { mining_network }
+
+	base_buildtime = @base_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_2
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3 = {
+	tags = { mining_network }
+
+	base_buildtime = @base_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_3
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4 = {
+	tags = { mining_network }
+
+	base_buildtime = @base_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_4
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5 = {
+	tags = { mining_network }
+
+	base_buildtime = @base_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @b5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_5
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS B ################################################################################################
+building_mining_network_1_b = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @b_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b	
+		}
+	}
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @b_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_b
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_b = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @b_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_b
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_b = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @b_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @b_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_b
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_b = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @b_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @b_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_b
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_b = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @b_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @b5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @b_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	required_resources = {
+		energy = @b_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS A ################################################################################################
+building_mining_network_1_a = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @a_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_a	
+		}
+	}
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @a_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_a 
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_a = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @a_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_a 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_a = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @a_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @a_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_a 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_a = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @a_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	required_resources = {
+		energy = @a_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_a 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_a = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @a_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @a5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @a_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @a_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS F ################################################################################################
+building_mining_network_1_f = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @f_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_f	
+		}
+	}
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @f_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_f 
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_f = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @f_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_f 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_f = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @f_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @f_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_f 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_f = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @f_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_f 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_f = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @f_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @f5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @f_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @f_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS G ################################################################################################
+building_mining_network_1_g = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @g_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_g	
+		}
+	}
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @g_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_g 
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_g = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @g_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_g 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_g = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @g_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @g_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_g 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_g = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @g_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_g 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_g = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @g_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @g5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @g_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @g_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS K ################################################################################################
+building_mining_network_1_k = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @k_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_k	
+		}
+	}
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @k_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_k 
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_k = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @k_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_k 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_k = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @k_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @k_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_k 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_k = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @k_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_k 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_k = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @k_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @k5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @k_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @k_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+######################################################### CLASS M ################################################################################################
+building_mining_network_1_m = {
+	icon = "building_RW_mine_1"
+	tags = { mining_network }
+
+	base_buildtime = @base_time_1
+	
+	potential = {
+		planet = {
+			is_planet_class = pc_ringworld_habitable_m
+		}
+	}
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	produced_resources = {
+		minerals = @base_output_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+		
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	upgrades = {
+		building_mining_network_2_m 
+	}	
+	
+	prerequisites = {
+		"tech_basic_industry"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_mining_network_2_m = {
+	icon = "building_RW_mine_2"
+	tags = { mining_network }
+
+	base_buildtime = @base_time_2
+	is_listed = no
+		
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	upgrades = {
+		building_mining_network_3_m 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_2"
+	}	
+}
+
+building_mining_network_3_m = {
+	icon = "building_RW_mine_3"
+	tags = { mining_network }
+
+	base_buildtime = @base_time_3
+	is_listed = no
+		
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @base_upkeep_3
+	}
+	
+	upgrades = {
+		building_mining_network_4_m 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_3"
+	}	
+}
+
+building_mining_network_4_m = {
+	icon = "building_RW_mine_4"
+	tags = { mining_network }
+
+	base_buildtime = @base_time_4
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	upgrades = {
+		building_mining_network_5_m 
+	}	
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}
+
+building_mining_network_5_m = {
+	icon = "building_RW_mine_5"
+	tags = { mining_network }
+
+	base_buildtime = @base_time_5
+	is_listed = no
+	
+	cost = {
+		minerals = @base5cost
+	}
+	
+	potential = {
+		planet = {
+			is_capital = yes
+		}
+	}
+	
+	destroy_if = {
+		planet = { is_capital = no }
+	}	
+	
+	allow = {
+		has_any_capital_3 = yes
+	}
+	
+	produced_resources = {
+		minerals = @base_output_5
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	required_resources = {
+		energy = @base_upkeep_5
+	}
+	
+	prerequisites = {
+		"tech_mining_network_4"
+	}	
+}

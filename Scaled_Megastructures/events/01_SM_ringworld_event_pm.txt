@@ -1,0 +1,59 @@
+namespace = ringworld
+
+### Ringworld Finish
+event = {
+	id = ringworld.2000
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			every_system_planet = {
+				if = {
+					limit = {
+						AND = {
+							num_modifiers < 1
+							NOT = {
+								has_planet_flag = new_ringworld_flag
+							}
+						}
+					}
+					log = "---- Fired Event ringworld.2000 ----"
+					log = "---- On Ringworld: [This.GetName] ----"
+					if = {
+						limit = { is_planet_class = pc_ringworld_habitable_b }
+						add_modifier = { modifier = "RW_B" days = -1 } 
+					}
+					if = {
+						limit = { is_planet_class = pc_ringworld_habitable_a }
+						add_modifier = { modifier = "RW_A" days = -1 } 
+					}
+					if = {
+						limit = { is_planet_class = pc_ringworld_habitable_f }
+						add_modifier = { modifier = "RW_F" days = -1 } 
+					}
+					if = {
+						limit = { is_planet_class = pc_ringworld_habitable_g }
+						add_modifier = { modifier = "RW_G" days = -1 } 
+					}
+					if = {
+						limit = { is_planet_class = pc_ringworld_habitable_k }
+						add_modifier = { modifier = "RW_K" days = -1 }
+					}
+
+					set_planet_flag = new_ringworld_flag
+				}
+				if = {
+					limit = {
+						OR = {
+							is_planet_class = pc_ringworld_seam
+							is_planet_class = pc_ringworld_tech
+						}
+					}
+					set_planet_flag = is_constructed_ringworld_part
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1651 @@
+@base_time_1 = 180
+@base_time_2 = 270
+@base_time_3 = 360
+@base_time_4 = 720
+@b_time_1 = 72000
+@b_time_2 = 108000
+@b_time_3 = 144000
+@b_time_4 = 288000
+@a_time_1 = 14400
+@a_time_2 = 21600
+@a_time_3 = 28800
+@a_time_4 = 57600
+@f_time_1 = 5400
+@f_time_2 = 8100
+@f_time_3 = 10800
+@f_time_4 = 21600
+@g_time_1 = 3600
+@g_time_2 = 5400
+@g_time_3 = 7200
+@g_time_4 = 14400
+@k_time_1 = 1800
+@k_time_2 = 2700
+@k_time_3 = 3600
+@k_time_4 = 7200
+
+@base_cost_1 = 100
+@base_cost_2 = 200
+@base_cost_3 = 350
+@base_cost_4 = 500
+@b_cost_1 = 40000
+@b_cost_2 = 80000
+@b_cost_3 = 140000
+@b_cost_4 = 200000
+@a_cost_1 = 8000
+@a_cost_2 = 16000
+@a_cost_3 = 28000
+@a_cost_4 = 40000
+@f_cost_1 = 3000
+@f_cost_2 = 6000
+@f_cost_3 = 10500
+@f_cost_4 = 15000
+@g_cost_1 = 2000
+@g_cost_2 = 4000
+@g_cost_3 = 7000
+@g_cost_4 = 10000
+@k_cost_1 = 1000
+@k_cost_2 = 2000
+@k_cost_3 = 3500
+@k_cost_4 = 5000
+
+@base_unity_1 = 3
+@base_unity_2 = 6
+@base_unity_3 = 9
+@base_unity_4 = 12
+@b_unity_1 = 1200
+@b_unity_2 = 2400
+@b_unity_3 = 3600
+@b_unity_4 = 4800
+@a_unity_1 = 240
+@a_unity_2 = 480
+@a_unity_3 = 720
+@a_unity_4 = 960
+@f_unity_1 = 90
+@f_unity_2 = 180
+@f_unity_3 = 270
+@f_unity_4 = 360
+@g_unity_1 = 60
+@g_unity_2 = 120
+@g_unity_3 = 180
+@g_unity_4 = 240
+@k_unity_1 = 30
+@k_unity_2 = 60
+@k_unity_3 = 90
+@k_unity_4 = 120
+
+@base_upkeep_1 = 1
+@base_upkeep_2 = 2
+@base_upkeep_3 = 3
+@base_upkeep_4 = 4
+@b_upkeep_1 = 400
+@b_upkeep_2 = 800
+@b_upkeep_3 = 1200
+@b_upkeep_4 = 1600
+@a_upkeep_1 = 80
+@a_upkeep_2 = 160
+@a_upkeep_3 = 240
+@a_upkeep_4 = 320
+@f_upkeep_1 = 30
+@f_upkeep_2 = 60
+@f_upkeep_3 = 90
+@f_upkeep_4 = 120
+@g_upkeep_1 = 20
+@g_upkeep_2 = 40
+@g_upkeep_3 = 60
+@g_upkeep_4 = 80
+@k_upkeep_1 = 10
+@k_upkeep_2 = 20
+@k_upkeep_3 = 30
+@k_upkeep_4 = 40
+
+######################################################### BASE ###################################################################################################
+building_temple = {
+	icon = "building_temple"
+	base_buildtime = @base_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_1
+	}
+	
+	produced_resources = {
+		unity = @base_unity_1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple = {
+	icon = "building_holotemple"
+	base_buildtime = @base_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @base_cost_2
+	}
+	
+	produced_resources = {
+		unity = @base_unity_2
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @base_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @base_cost_3
+	}
+	
+	produced_resources = {
+		unity = @base_unity_3
+	}
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @base_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @base_cost_4
+	}
+	
+	produced_resources = {
+		unity = @base_unity_4
+	}
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @base_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+######################################################### CLASS B ################################################################################################
+building_temple_b = {
+	icon = "building_temple"
+	base_buildtime = @b_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_1
+	}
+	
+	produced_resources = {
+		unity = @b_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple_b 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple_b = {
+	icon = "building_holotemple"
+	base_buildtime = @b_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @b_cost_2
+	}
+	
+	produced_resources = {
+		unity = @b_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus_b 
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus_b = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @b_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @b_cost_3
+	}
+	
+	produced_resources = {
+		unity = @b_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith_b 
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith_b = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @b_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @b_cost_4
+	}
+	
+	produced_resources = {
+		unity = @b_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @b_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+######################################################### CLASS A ################################################################################################
+building_temple_a = {
+	icon = "building_temple"
+	base_buildtime = @a_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_1
+	}
+	
+	produced_resources = {
+		unity = @a_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple_a 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple_a = {
+	icon = "building_holotemple"
+	base_buildtime = @a_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @a_cost_2
+	}
+	
+	produced_resources = {
+		unity = @a_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus_a 
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus_a = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @a_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @a_cost_3
+	}
+	
+	produced_resources = {
+		unity = @a_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith_a 
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith_a = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @a_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @a_cost_4
+	}
+	
+	produced_resources = {
+		unity = @a_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @a_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+######################################################### CLASS F ################################################################################################
+building_temple_f = {
+	icon = "building_temple"
+	base_buildtime = @f_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_1
+	}
+	
+	produced_resources = {
+		unity = @f_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple_f 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple_f = {
+	icon = "building_holotemple"
+	base_buildtime = @f_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @f_cost_2
+	}
+	
+	produced_resources = {
+		unity = @f_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus_f 
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus_f = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @f_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @f_cost_3
+	}
+	
+	produced_resources = {
+		unity = @f_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith_f 
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith_f = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @f_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @f_cost_4
+	}
+	
+	produced_resources = {
+		unity = @f_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @f_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+######################################################### CLASS G ################################################################################################
+building_temple_g = {
+	icon = "building_temple"
+	base_buildtime = @g_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_1
+	}
+	
+	produced_resources = {
+		unity = @g_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple_g 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple_g = {
+	icon = "building_holotemple"
+	base_buildtime = @g_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @g_cost_2
+	}
+	
+	produced_resources = {
+		unity = @g_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus_g 
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus_g = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @g_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @g_cost_3
+	}
+	
+	produced_resources = {
+		unity = @g_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith_g 
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith_g = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @g_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @g_cost_4
+	}
+	
+	produced_resources = {
+		unity = @g_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @g_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+######################################################### CLASS K ################################################################################################
+building_temple_k = {
+	icon = "building_temple"
+	base_buildtime = @k_time_1
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_1
+	}
+	
+	produced_resources = {
+		unity = @k_unity_1
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.2
+	}
+	
+	prerequisites = {
+		"tech_cultural_heritage"
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_1
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		planet = {
+			is_planet_class = pc_ringworld_habitable_b
+			NOT = {
+				has_building = building_autochthon_monument
+				has_building = building_heritage_site
+				has_building = building_hypercomms_forum
+				has_building = building_autocurating_vault
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	upgrades = {
+		building_holotemple_k 
+	}
+	
+	ai_allow = {
+		NOT = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no	
+	}
+}
+
+building_holotemple_k = {
+	icon = "building_holotemple"
+	base_buildtime = @k_time_2
+	is_listed = no
+	planet_unique = yes
+	
+	cost = {
+		minerals = @k_cost_2
+	}
+	
+	produced_resources = {
+		unity = @k_unity_2
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_2
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_1 = yes
+	}
+	
+	upgrades = {
+		building_sacred_nexus_k 
+	}	
+	
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+
+building_sacred_nexus_k = {
+	icon = "building_sacred_nexus"
+	base_buildtime = @k_time_3
+	planet_unique = yes
+	is_listed = no
+	
+	cost = {
+		minerals = @k_cost_3
+	}
+	
+	produced_resources = {
+		unity = @k_unity_3
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	planet_modifier = {
+		tile_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.3
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_3
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_2 = yes
+	}
+	
+	upgrades = {
+		building_citadel_of_faith_k 
+	}	
+	
+	prerequisites = {
+		"tech_consecration_fields"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}
+building_citadel_of_faith_k = {
+	icon = "building_citadel_of_faith"
+	base_buildtime = @k_time_4
+	is_listed = no
+	empire_unique = yes
+	
+	cost = {
+		minerals = @k_cost_4
+	}
+	
+	produced_resources = {
+		unity = @k_unity_4
+	}
+	
+	show_tech_unlock_if = { always = no }
+	
+	country_modifier = {
+		country_resource_unity_mult = 0.10
+		pop_ethic_spiritualist_attraction_mult = 0.1
+	}
+	
+	planet_modifier = {
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+	
+	required_resources = {
+		energy = @k_upkeep_4
+	}
+	
+	potential = { 	
+		owner = {
+			OR = {
+				has_ethic = ethic_spiritualist		
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}	
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		has_any_capital_3 = yes
+	}	
+	
+	prerequisites = {
+		"tech_transcendent_faith"
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+	
+	ai_allow = {
+		# If planet only has slaves/robots, keep it to mining and farming...
+		is_slave_tile_or_planet = no
+	}
+}

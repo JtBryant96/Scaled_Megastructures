@@ -1,0 +1,267 @@
+#	Example:
+# 
+#	example_trigger = {
+#		is_country_type = default
+#		free_leader_slots > 0
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		example_trigger = yes
+#	}
+#
+has_capital_0 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_colony_shelter"
+				has_building = "building_colony_shelter_b"
+				has_building = "building_colony_shelter_a"
+				has_building = "building_colony_shelter_f"
+				has_building = "building_colony_shelter_g"
+				has_building = "building_colony_shelter_k"
+			}
+		}
+		has_capital_1 = yes
+	}
+}
+
+has_capital_1 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_capital_1"
+				has_building = "building_capital_1_b"
+				has_building = "building_capital_1_a"
+				has_building = "building_capital_1_f"
+				has_building = "building_capital_1_g"
+				has_building = "building_capital_1_k"
+			}
+		}
+		has_capital_2 = yes
+	}
+}
+
+has_capital_2 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_capital_2"
+				has_building = "building_capital_2_b"
+				has_building = "building_capital_2_a"
+				has_building = "building_capital_2_f"
+				has_building = "building_capital_2_g"
+				has_building = "building_capital_2_k"
+			}
+		}
+		has_capital_3
+	}
+}
+
+has_capital_3 = {
+	planet = {
+		OR = {
+			has_building = "building_capital_3"
+			has_building = "building_capital_3_b"
+			has_building = "building_capital_3_a"
+			has_building = "building_capital_3_f"
+			has_building = "building_capital_3_g"
+			has_building = "building_capital_3_k"
+		}
+	}
+}
+
+has_machine_capital_0 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_deployment_post"
+				has_building = "building_deployment_post_b"
+				has_building = "building_deployment_post_a"
+				has_building = "building_deployment_post_f"
+				has_building = "building_deployment_post_g"
+				has_building = "building_deployment_post_k"
+			}
+		}
+		has_machine_capital_1 = yes
+	}
+}
+
+has_machine_capital_1 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_machine_capital_1"
+				has_building = "building_machine_capital_1_b"
+				has_building = "building_machine_capital_1_a"
+				has_building = "building_machine_capital_1_f"
+				has_building = "building_machine_capital_1_g"
+				has_building = "building_machine_capital_1_k"
+			}
+		}
+		has_machine_capital_2 = yes
+	}
+}
+
+has_machine_capital_2 = {
+	OR = {
+		planet = {
+			OR = {
+				has_building = "building_machine_capital_2"
+				has_building = "building_machine_capital_2_b"
+				has_building = "building_machine_capital_2_a"
+				has_building = "building_machine_capital_2_f"
+				has_building = "building_machine_capital_2_g"
+				has_building = "building_machine_capital_2_k"
+			}
+		}
+		has_machine_capital_3 = yes
+	}
+}
+
+has_machine_capital_3 = {
+	planet = {
+		OR = {
+			has_building = "building_machine_capital_3"
+			has_building = "building_machine_capital_3_b"
+			has_building = "building_machine_capital_3_a"
+			has_building = "building_machine_capital_3_f"
+			has_building = "building_machine_capital_3_g"
+			has_building = "building_machine_capital_3_k"
+		}
+	}
+}
+
+has_any_capital_0 = {
+	OR = {
+		has_capital_0 = yes
+		has_machine_capital_0 = yes
+	}
+}
+
+has_any_capital_1 = {
+	if = {
+		limit = {
+			owner = {
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+		}
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			has_capital_1 = yes
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		custom_tooltip = {
+			text = "requires_building_machine_capital_1"
+			has_machine_capital_1 = yes
+		}
+	}
+}
+
+has_any_capital_2 = {
+	if = {
+		limit = {
+			owner = {
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+		}
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			has_capital_2 = yes
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		custom_tooltip = {
+			text = "requires_building_machine_capital_1"
+			has_machine_capital_2 = yes
+		}
+	}
+}
+
+has_any_capital_3 = {
+	if = {
+		limit = {
+			owner = {
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+		}
+		custom_tooltip = {
+			text = "requires_building_capital_3"
+			has_capital_3 = yes
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		custom_tooltip = {
+			text = "requires_building_machine_capital_3"
+			has_machine_capital_3 = yes
+		}
+	}
+}
+
+has_5_pops = {
+	custom_tooltip = {
+		text = "requires_pops_5"
+		planet = {
+			count_pops = {
+				count > 4
+				limit = {
+					is_colony_pop = yes
+				}
+			}
+		}				
+	}
+}
+
+has_10_pops = {
+	custom_tooltip = {
+		text = "requires_pops_10"
+		planet = {
+			count_pops = {
+				count > 9
+				limit = {
+					is_colony_pop = yes
+				}
+			}
+		}				
+	}
+}
+
+has_15_pops = {
+	custom_tooltip = {
+		text = "requires_pops_15"
+		planet = {
+			count_pops = {
+				count > 14
+				limit = {
+					is_colony_pop = yes
+				}
+			}
+		}				
+	}
+}
+
+has_20_pops = {
+	custom_tooltip = {
+		text = "requires_pops_20"
+		planet = {
+			count_pops = {
+				count > 19
+				limit = {
+					is_colony_pop = yes
+				}
+			}
+		}				
+	}
+}

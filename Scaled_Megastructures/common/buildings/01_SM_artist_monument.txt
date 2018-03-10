@@ -1,0 +1,1117 @@
+@base_time = 400
+@b_time = 160000
+@a_time = 32000
+@f_time = 12000
+@g_time = 8000
+@k_time = 4000
+
+@base_unity = 8
+@b_unity = 3200
+@a_unity = 640
+@f_unity = 240
+@g_unity = 160
+@k_unity = 80
+
+building_artist = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @base_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @base_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			NOT = {
+				is_planet_class = pc_ringworld_habitable_b
+				is_planet_class = pc_ringworld_habitable_a
+				is_planet_class = pc_ringworld_habitable_f
+				is_planet_class = pc_ringworld_habitable_g
+				is_planet_class = pc_ringworld_habitable_k
+			}
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_b = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @b_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @b_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			is_planet_class = pc_ringworld_habitable_b
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_a = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @a_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @a_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			is_planet_class = pc_ringworld_habitable_a
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_f = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @f_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @f_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			is_planet_class = pc_ringworld_habitable_f
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_g = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @g_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @g_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			is_planet_class = pc_ringworld_habitable_g
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
+
+building_artist_k = {
+	icon = "building_zanaam_obelisk"
+	base_buildtime = @k_time
+	planet_unique = yes
+	
+	produced_resources = {
+		unity = @k_unity
+	}
+
+	planet_modifier = {
+		planet_migration_all_pull = 0.50		
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_artist_tooltip
+			planet = {
+				owner = {
+					OR = {
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 5
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 4
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 4
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 3
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 3
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 2
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 2
+							}
+							OR = {
+								check_variable = {
+									which = artist_monuments_built
+									value = 1
+								}
+								check_variable = {
+									which = artist_monuments_built
+									value = 0
+								}
+							}
+						}
+						AND = {
+							check_variable = {
+								which = artist_monument_purchased
+								value = 1
+							}
+							check_variable = {
+								which = artist_monuments_built
+								value = 0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	potential = {
+		planet = {
+			owner = {
+				check_variable = {
+					which = artist_monument_purchased
+					value > 0
+				}
+			}
+			is_planet_class = pc_ringworld_habitable_k
+		}
+	}
+	
+	on_queued = {
+		planet = {
+			owner = {
+				if = {
+					limit = {
+						check_variable = {
+							which = artist_monuments_built
+							value < 1
+						}
+					}
+					set_variable = {
+						which = artist_monuments_built
+						value = 1
+					}
+					else = {
+						change_variable = {
+							which = artist_monuments_built
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	on_unqueued = {
+		planet = {
+			owner = {
+				change_variable = {
+					which = artist_monuments_built
+					value = -1
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = {
+			weight = 0
+			from = { sector_controlled = yes }
+			from = { NOT = { has_building = building_artist } }
+		}		
+	}
+	
+	ai_replace = no
+	event_building = yes
+}
