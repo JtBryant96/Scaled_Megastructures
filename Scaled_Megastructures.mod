@@ -1,4 +1,4 @@
-name="0 Scaled Megastructures"
+name="Scaled Megastructures"
 path="mod/Scaled_Megastructures"
 tags={
 	"Balance"
