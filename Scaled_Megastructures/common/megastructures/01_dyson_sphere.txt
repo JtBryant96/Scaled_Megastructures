@@ -17,7 +17,6 @@ dyson_sphere_0 = {
 
 	potential = {
 		has_ascension_perk = ap_galactic_wonders
-		always = yes
 	}
 	
 	possible = {
