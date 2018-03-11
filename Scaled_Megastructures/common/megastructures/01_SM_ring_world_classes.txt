@@ -6,7 +6,7 @@
 @m_build_time = 1800
 
 @b_build_cost = 500000
-@a_build_cost = 120000
+@a_build_cost = 10#120000
 @f_build_cost = 50000
 @g_build_cost = 40000
 @k_build_cost = 25000
@@ -46,8 +46,7 @@ ring_world_b_2_intermediate = {
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -143,8 +142,7 @@ ring_world_b_2_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
@@ -285,13 +283,12 @@ ring_world_a_2_intermediate = {
 	
 	build_time = @a_build_time
 	build_cost = {
-		minerals = @b_build_cost
+		minerals = @a_build_cost
 	}
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -387,8 +384,7 @@ ring_world_a_3_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
@@ -534,8 +530,7 @@ ring_world_f_2_intermediate = {
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -631,8 +626,7 @@ ring_world_f_3_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
@@ -778,8 +772,7 @@ ring_world_g_2_intermediate = {
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -875,8 +868,7 @@ ring_world_g_3_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
@@ -1022,8 +1014,7 @@ ring_world_k_2_intermediate = {
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -1119,8 +1110,7 @@ ring_world_k_3_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
@@ -1266,8 +1256,7 @@ ring_world_m_2_intermediate = {
 	construction_blocks_others = yes
 	
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	
 	on_build_start = {}
@@ -1363,8 +1352,7 @@ ring_world_m_3_intermediate = {
 	}
 
 	possible = {
-		#from = { has_ascension_perk = ap_the_circle_of_life }
-		always = yes
+		from = { has_ascension_perk = ap_the_circle_of_life }
 	}
 	construction_blocks_others = yes
 
