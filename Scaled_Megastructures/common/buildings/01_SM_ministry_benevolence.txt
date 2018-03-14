@@ -81,7 +81,7 @@ building_ministry_benevolence = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"
@@ -138,7 +138,7 @@ building_ministry_benevolence_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"
@@ -195,7 +195,7 @@ building_ministry_benevolence_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"
@@ -252,7 +252,7 @@ building_ministry_benevolence_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"
@@ -309,7 +309,7 @@ building_ministry_benevolence_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"
@@ -366,7 +366,7 @@ building_ministry_benevolence_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	prerequisites = {
 		"tech_galactic_benevolence"

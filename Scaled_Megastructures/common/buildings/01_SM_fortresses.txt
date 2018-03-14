@@ -234,7 +234,7 @@ building_fortress = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {
@@ -491,9 +491,9 @@ building_fortress_b = {
 	planet_modifier = {
 		planet_unrest_add = -50
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {
@@ -750,9 +750,9 @@ building_fortress_a = {
 	planet_modifier = {
 		planet_unrest_add = -50
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {
@@ -880,7 +880,7 @@ building_stronghold_f = {
 	planet_modifier = {
 		planet_unrest_add = -30
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	potential = {
 		planet = {
 			is_planet_class = pc_ringworld_habitable_f
@@ -1009,9 +1009,9 @@ building_fortress_f = {
 	planet_modifier = {
 		planet_unrest_add = -50
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {
@@ -1139,7 +1139,7 @@ building_stronghold_g = {
 	planet_modifier = {
 		planet_unrest_add = -30
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	potential = {
 		planet = {
 			is_planet_class = pc_ringworld_habitable_g
@@ -1268,9 +1268,9 @@ building_fortress_g = {
 	planet_modifier = {
 		planet_unrest_add = -50
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {
@@ -1398,7 +1398,7 @@ building_stronghold_k = {
 	planet_modifier = {
 		planet_unrest_add = -30
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	potential = {
 		planet = {
 			is_planet_class = pc_ringworld_habitable_k
@@ -1527,9 +1527,9 @@ building_fortress_k = {
 	planet_modifier = {
 		planet_unrest_add = -50
 	}
-	
+	show_tech_unlock_if = { always = no }	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	ai_weight = {

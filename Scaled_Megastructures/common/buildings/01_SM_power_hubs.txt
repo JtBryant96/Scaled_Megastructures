@@ -78,7 +78,7 @@ building_power_hub_1 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -150,7 +150,7 @@ building_power_hub_2 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -267,7 +267,7 @@ building_power_hub_1_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -341,7 +341,7 @@ building_power_hub_2_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -457,7 +457,7 @@ building_power_hub_1_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -531,7 +531,7 @@ building_power_hub_2_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -647,7 +647,7 @@ building_power_hub_1_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -721,7 +721,7 @@ building_power_hub_2_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -837,7 +837,7 @@ building_power_hub_1_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -911,7 +911,7 @@ building_power_hub_2_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1027,7 +1027,7 @@ building_power_hub_1_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 		custom_tooltip = {
 			fail_text = "requires_power_hub_absence"
 			planet = {
@@ -1101,7 +1101,7 @@ building_power_hub_2_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {

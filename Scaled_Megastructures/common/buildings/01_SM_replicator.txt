@@ -47,7 +47,7 @@ building_replicator = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {
@@ -84,7 +84,7 @@ building_replicator_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {
@@ -123,7 +123,7 @@ building_replicator_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {
@@ -162,7 +162,7 @@ building_replicator_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {
@@ -201,7 +201,7 @@ building_replicator_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {
@@ -240,7 +240,7 @@ building_replicator_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	planet_modifier = {

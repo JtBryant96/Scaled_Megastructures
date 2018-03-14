@@ -156,8 +156,8 @@ building_megastructure_base = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -243,8 +243,8 @@ building_megastructure_b = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -332,8 +332,8 @@ building_megastructure_a = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -422,8 +422,8 @@ building_megastructure_f = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -511,8 +511,8 @@ building_megastructure_g = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -600,8 +600,8 @@ building_megastructure_k = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	

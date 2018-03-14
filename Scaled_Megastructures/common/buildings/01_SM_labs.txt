@@ -199,7 +199,7 @@ building_engineering_facility_1 = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -236,7 +236,7 @@ building_engineering_facility_2 = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -273,7 +273,7 @@ building_engineering_facility_3 = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -320,7 +320,7 @@ building_engineering_facility_4 = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -357,7 +357,7 @@ building_physics_lab_1 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -394,7 +394,7 @@ building_physics_lab_2 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -431,7 +431,7 @@ building_physics_lab_3 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -478,7 +478,7 @@ building_physics_lab_4 = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -515,7 +515,7 @@ building_biolab_1 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -552,7 +552,7 @@ building_biolab_2 = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 
 	produced_resources = {
@@ -589,7 +589,7 @@ building_biolab_3 = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -636,7 +636,7 @@ building_biolab_4 = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -729,7 +729,7 @@ building_engineering_facility_1_b = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -766,7 +766,7 @@ building_engineering_facility_2_b = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -803,7 +803,7 @@ building_engineering_facility_3_b = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -850,7 +850,7 @@ building_engineering_facility_4_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -887,7 +887,7 @@ building_physics_lab_1_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -924,7 +924,7 @@ building_physics_lab_2_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -961,7 +961,7 @@ building_physics_lab_3_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1008,7 +1008,7 @@ building_physics_lab_4_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1045,7 +1045,7 @@ building_biolab_1_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1082,7 +1082,7 @@ building_biolab_2_b = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }
 	produced_resources = {
@@ -1119,7 +1119,7 @@ building_biolab_3_b = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1259,7 +1259,7 @@ building_engineering_facility_1_a = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1296,7 +1296,7 @@ building_engineering_facility_2_a = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1333,7 +1333,7 @@ building_engineering_facility_3_a = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1380,7 +1380,7 @@ building_engineering_facility_4_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1417,7 +1417,7 @@ building_physics_lab_1_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1454,7 +1454,7 @@ building_physics_lab_2_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1491,7 +1491,7 @@ building_physics_lab_3_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1538,7 +1538,7 @@ building_physics_lab_4_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1575,7 +1575,7 @@ building_biolab_1_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1612,7 +1612,7 @@ building_biolab_2_a = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }
 	produced_resources = {
@@ -1649,7 +1649,7 @@ building_biolab_3_a = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1696,7 +1696,7 @@ building_biolab_4_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1789,7 +1789,7 @@ building_engineering_facility_1_f = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1826,7 +1826,7 @@ building_engineering_facility_2_f = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1863,7 +1863,7 @@ building_engineering_facility_3_f = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1910,7 +1910,7 @@ building_engineering_facility_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1947,7 +1947,7 @@ building_physics_lab_1_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -1984,7 +1984,7 @@ building_physics_lab_2_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2021,7 +2021,7 @@ building_physics_lab_3_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2068,7 +2068,7 @@ building_physics_lab_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2105,7 +2105,7 @@ building_biolab_1_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2142,7 +2142,7 @@ building_biolab_2_f = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }
 	produced_resources = {
@@ -2179,7 +2179,7 @@ building_biolab_3_f = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2226,7 +2226,7 @@ building_biolab_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2319,7 +2319,7 @@ building_engineering_facility_1_g = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2356,7 +2356,7 @@ building_engineering_facility_2_g = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2393,7 +2393,7 @@ building_engineering_facility_3_g = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2440,7 +2440,7 @@ building_engineering_facility_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2477,7 +2477,7 @@ building_physics_lab_1_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2514,7 +2514,7 @@ building_physics_lab_2_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2551,7 +2551,7 @@ building_physics_lab_3_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2598,7 +2598,7 @@ building_physics_lab_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2635,7 +2635,7 @@ building_biolab_1_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2672,7 +2672,7 @@ building_biolab_2_g = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }
 	produced_resources = {
@@ -2709,7 +2709,7 @@ building_biolab_3_g = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2756,7 +2756,7 @@ building_biolab_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2849,7 +2849,7 @@ building_engineering_facility_1_k = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2886,7 +2886,7 @@ building_engineering_facility_2_k = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2923,7 +2923,7 @@ building_engineering_facility_3_k = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -2970,7 +2970,7 @@ building_engineering_facility_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3007,7 +3007,7 @@ building_physics_lab_1_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3044,7 +3044,7 @@ building_physics_lab_2_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3081,7 +3081,7 @@ building_physics_lab_3_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3128,7 +3128,7 @@ building_physics_lab_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3165,7 +3165,7 @@ building_biolab_1_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3202,7 +3202,7 @@ building_biolab_2_k = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }
 	produced_resources = {
@@ -3239,7 +3239,7 @@ building_biolab_3_k = {
 	}	
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {
@@ -3286,7 +3286,7 @@ building_biolab_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	show_tech_unlock_if = { always = no }	
 	produced_resources = {

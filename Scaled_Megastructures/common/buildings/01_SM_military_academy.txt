@@ -76,7 +76,7 @@ building_military_academy = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -177,7 +177,7 @@ building_war_factory = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -253,7 +253,7 @@ building_military_academy_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -349,7 +349,7 @@ building_war_factory_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -429,7 +429,7 @@ building_military_academy_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -525,7 +525,7 @@ building_war_factory_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -605,7 +605,7 @@ building_military_academy_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -701,7 +701,7 @@ building_war_factory_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -781,7 +781,7 @@ building_military_academy_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -877,7 +877,7 @@ building_war_factory_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -957,7 +957,7 @@ building_military_academy_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1053,7 +1053,7 @@ building_war_factory_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {

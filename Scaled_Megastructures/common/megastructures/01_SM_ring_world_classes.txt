@@ -6,7 +6,7 @@
 @m_build_time = 1800
 
 @b_build_cost = 500000
-@a_build_cost = 10#120000
+@a_build_cost = 120000
 @f_build_cost = 50000
 @g_build_cost = 40000
 @k_build_cost = 25000

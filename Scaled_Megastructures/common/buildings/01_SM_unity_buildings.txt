@@ -215,7 +215,7 @@ building_heritage_site = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -272,7 +272,7 @@ building_hypercomms_forum = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -334,7 +334,7 @@ building_autocurating_vault = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -449,7 +449,7 @@ building_network_junction = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -503,7 +503,7 @@ building_system_conflux = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -563,7 +563,7 @@ building_alpha_hub = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -687,7 +687,7 @@ building_heritage_site_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -746,7 +746,7 @@ building_hypercomms_forum_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -810,7 +810,7 @@ building_autocurating_vault_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -923,7 +923,7 @@ building_network_junction_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -979,7 +979,7 @@ building_system_conflux_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -1041,7 +1041,7 @@ building_alpha_hub_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1169,7 +1169,7 @@ building_heritage_site_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -1228,7 +1228,7 @@ building_hypercomms_forum_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -1292,7 +1292,7 @@ building_autocurating_vault_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1405,7 +1405,7 @@ building_network_junction_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -1461,7 +1461,7 @@ building_system_conflux_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -1523,7 +1523,7 @@ building_alpha_hub_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1651,7 +1651,7 @@ building_heritage_site_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -1710,7 +1710,7 @@ building_hypercomms_forum_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -1774,7 +1774,7 @@ building_autocurating_vault_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1887,7 +1887,7 @@ building_network_junction_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -1943,7 +1943,7 @@ building_system_conflux_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -2005,7 +2005,7 @@ building_alpha_hub_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -2133,7 +2133,7 @@ building_heritage_site_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -2192,7 +2192,7 @@ building_hypercomms_forum_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -2256,7 +2256,7 @@ building_autocurating_vault_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -2369,7 +2369,7 @@ building_network_junction_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -2425,7 +2425,7 @@ building_system_conflux_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -2487,7 +2487,7 @@ building_alpha_hub_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -2615,7 +2615,7 @@ building_heritage_site_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -2674,7 +2674,7 @@ building_hypercomms_forum_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -2738,7 +2738,7 @@ building_autocurating_vault_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -2851,7 +2851,7 @@ building_network_junction_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -2907,7 +2907,7 @@ building_system_conflux_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}	
 	
 	prerequisites = {
@@ -2969,7 +2969,7 @@ building_alpha_hub_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {

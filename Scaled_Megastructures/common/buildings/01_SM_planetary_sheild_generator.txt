@@ -63,7 +63,7 @@ building_planetary_shield_generator = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -123,7 +123,7 @@ building_planetary_shield_generator_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -183,7 +183,7 @@ building_planetary_shield_generator_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -243,7 +243,7 @@ building_planetary_shield_generator_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -303,7 +303,7 @@ building_planetary_shield_generator_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {
@@ -363,7 +363,7 @@ building_planetary_shield_generator_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	prerequisites = {

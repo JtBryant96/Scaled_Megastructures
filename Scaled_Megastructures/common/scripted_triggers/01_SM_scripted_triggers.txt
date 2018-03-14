@@ -12,7 +12,7 @@
 #		example_trigger = yes
 #	}
 #
-has_capital_0 = {
+SM_has_capital_0 = {
 	OR = {
 		planet = {
 			OR = {
@@ -24,11 +24,11 @@ has_capital_0 = {
 				has_building = "building_colony_shelter_k"
 			}
 		}
-		has_capital_1 = yes
+		SM_has_capital_1 = yes
 	}
 }
 
-has_capital_1 = {
+SM_has_capital_1 = {
 	OR = {
 		planet = {
 			OR = {
@@ -40,11 +40,11 @@ has_capital_1 = {
 				has_building = "building_capital_1_k"
 			}
 		}
-		has_capital_2 = yes
+		SM_has_capital_2 = yes
 	}
 }
 
-has_capital_2 = {
+SM_has_capital_2 = {
 	OR = {
 		planet = {
 			OR = {
@@ -56,11 +56,11 @@ has_capital_2 = {
 				has_building = "building_capital_2_k"
 			}
 		}
-		has_capital_3
+		SM_has_capital_3 = yes
 	}
 }
 
-has_capital_3 = {
+SM_has_capital_3 = {
 	planet = {
 		OR = {
 			has_building = "building_capital_3"
@@ -73,7 +73,7 @@ has_capital_3 = {
 	}
 }
 
-has_machine_capital_0 = {
+SM_has_machine_capital_0 = {
 	OR = {
 		planet = {
 			OR = {
@@ -85,11 +85,11 @@ has_machine_capital_0 = {
 				has_building = "building_deployment_post_k"
 			}
 		}
-		has_machine_capital_1 = yes
+		SM_has_machine_capital_1 = yes
 	}
 }
 
-has_machine_capital_1 = {
+SM_has_machine_capital_1 = {
 	OR = {
 		planet = {
 			OR = {
@@ -101,11 +101,11 @@ has_machine_capital_1 = {
 				has_building = "building_machine_capital_1_k"
 			}
 		}
-		has_machine_capital_2 = yes
+		SM_has_machine_capital_2 = yes
 	}
 }
 
-has_machine_capital_2 = {
+SM_has_machine_capital_2 = {
 	OR = {
 		planet = {
 			OR = {
@@ -117,11 +117,11 @@ has_machine_capital_2 = {
 				has_building = "building_machine_capital_2_k"
 			}
 		}
-		has_machine_capital_3 = yes
+		SM_has_machine_capital_3 = yes
 	}
 }
 
-has_machine_capital_3 = {
+SM_has_machine_capital_3 = {
 	planet = {
 		OR = {
 			has_building = "building_machine_capital_3"
@@ -134,14 +134,14 @@ has_machine_capital_3 = {
 	}
 }
 
-has_any_capital_0 = {
+SM_has_any_capital_0 = {
 	OR = {
-		has_capital_0 = yes
-		has_machine_capital_0 = yes
+		SM_has_capital_0 = yes
+		SM_has_machine_capital_0 = yes
 	}
 }
 
-has_any_capital_1 = {
+SM_has_any_capital_1 = {
 	if = {
 		limit = {
 			owner = {
@@ -150,7 +150,7 @@ has_any_capital_1 = {
 		}
 		custom_tooltip = {
 			text = "requires_building_capital_1"
-			has_capital_1 = yes
+			SM_has_capital_1 = yes
 		}
 	}
 	if = {
@@ -159,12 +159,12 @@ has_any_capital_1 = {
 		}
 		custom_tooltip = {
 			text = "requires_building_machine_capital_1"
-			has_machine_capital_1 = yes
+			SM_has_machine_capital_1 = yes
 		}
 	}
 }
 
-has_any_capital_2 = {
+SM_has_any_capital_2 = {
 	if = {
 		limit = {
 			owner = {
@@ -173,7 +173,7 @@ has_any_capital_2 = {
 		}
 		custom_tooltip = {
 			text = "requires_building_capital_2"
-			has_capital_2 = yes
+			SM_has_capital_2 = yes
 		}
 	}
 	if = {
@@ -181,13 +181,13 @@ has_any_capital_2 = {
 			owner = { has_authority = auth_machine_intelligence }
 		}
 		custom_tooltip = {
-			text = "requires_building_machine_capital_1"
-			has_machine_capital_2 = yes
+			text = "requires_building_machine_capital_2"
+			SM_has_machine_capital_2 = yes
 		}
 	}
 }
 
-has_any_capital_3 = {
+SM_has_any_capital_3 = {
 	if = {
 		limit = {
 			owner = {
@@ -196,7 +196,7 @@ has_any_capital_3 = {
 		}
 		custom_tooltip = {
 			text = "requires_building_capital_3"
-			has_capital_3 = yes
+			SM_has_capital_3 = yes
 		}
 	}
 	if = {
@@ -205,12 +205,12 @@ has_any_capital_3 = {
 		}
 		custom_tooltip = {
 			text = "requires_building_machine_capital_3"
-			has_machine_capital_3 = yes
+			SM_has_machine_capital_3 = yes
 		}
 	}
 }
 
-has_5_pops = {
+SM_has_5_pops = {
 	custom_tooltip = {
 		text = "requires_pops_5"
 		planet = {
@@ -224,7 +224,7 @@ has_5_pops = {
 	}
 }
 
-has_10_pops = {
+SM_has_10_pops = {
 	custom_tooltip = {
 		text = "requires_pops_10"
 		planet = {
@@ -238,7 +238,7 @@ has_10_pops = {
 	}
 }
 
-has_15_pops = {
+SM_has_15_pops = {
 	custom_tooltip = {
 		text = "requires_pops_15"
 		planet = {
@@ -252,7 +252,7 @@ has_15_pops = {
 	}
 }
 
-has_20_pops = {
+SM_has_20_pops = {
 	custom_tooltip = {
 		text = "requires_pops_20"
 		planet = {

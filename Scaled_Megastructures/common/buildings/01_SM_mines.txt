@@ -189,7 +189,7 @@ building_mining_network_2 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -220,7 +220,7 @@ building_mining_network_3 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -251,7 +251,7 @@ building_mining_network_4 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -292,7 +292,7 @@ building_mining_network_5 = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -373,7 +373,7 @@ building_mining_network_2_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -407,7 +407,7 @@ building_mining_network_3_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -441,7 +441,7 @@ building_mining_network_4_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -485,7 +485,7 @@ building_mining_network_5_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -568,7 +568,7 @@ building_mining_network_2_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -602,7 +602,7 @@ building_mining_network_3_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -636,7 +636,7 @@ building_mining_network_4_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -680,7 +680,7 @@ building_mining_network_5_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -763,7 +763,7 @@ building_mining_network_2_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -797,7 +797,7 @@ building_mining_network_3_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -831,7 +831,7 @@ building_mining_network_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -875,7 +875,7 @@ building_mining_network_5_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -958,7 +958,7 @@ building_mining_network_2_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -992,7 +992,7 @@ building_mining_network_3_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1026,7 +1026,7 @@ building_mining_network_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1070,7 +1070,7 @@ building_mining_network_5_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1153,7 +1153,7 @@ building_mining_network_2_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1187,7 +1187,7 @@ building_mining_network_3_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1221,7 +1221,7 @@ building_mining_network_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1265,7 +1265,7 @@ building_mining_network_5_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1348,7 +1348,7 @@ building_mining_network_2_m = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1382,7 +1382,7 @@ building_mining_network_3_m = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1416,7 +1416,7 @@ building_mining_network_4_m = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1460,7 +1460,7 @@ building_mining_network_5_m = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {

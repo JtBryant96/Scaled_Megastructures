@@ -246,7 +246,7 @@ building_hydroponics_farm_2 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -310,7 +310,7 @@ building_hydroponics_farm_3 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -374,7 +374,7 @@ building_hydroponics_farm_4 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -449,7 +449,7 @@ building_hydroponics_farm_5 = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -544,7 +544,7 @@ building_hydroponics_farm_1_b = {
 		"tech_eco_simulation"
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		NOT = {
@@ -589,7 +589,7 @@ building_hydroponics_farm_2_b = {
 		minerals = @b_cost_2
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -597,7 +597,7 @@ building_hydroponics_farm_2_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -655,7 +655,7 @@ building_hydroponics_farm_3_b = {
 		minerals = @b_cost_3
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -663,7 +663,7 @@ building_hydroponics_farm_3_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -721,7 +721,7 @@ building_hydroponics_farm_4_b = {
 		minerals = @b_cost_4
 	}
 
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -729,7 +729,7 @@ building_hydroponics_farm_4_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -787,7 +787,7 @@ building_hydroponics_farm_5_b = {
 		minerals = @b_cost_5
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		planet = {
@@ -806,7 +806,7 @@ building_hydroponics_farm_5_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -903,7 +903,7 @@ building_hydroponics_farm_1_a = {
 		"tech_eco_simulation"
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		NOT = {
@@ -948,7 +948,7 @@ building_hydroponics_farm_2_a = {
 		minerals = @a_cost_2
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -956,7 +956,7 @@ building_hydroponics_farm_2_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1014,7 +1014,7 @@ building_hydroponics_farm_3_a = {
 		minerals = @a_cost_3
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1022,7 +1022,7 @@ building_hydroponics_farm_3_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1080,7 +1080,7 @@ building_hydroponics_farm_4_a = {
 		minerals = @a_cost_4
 	}
 
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1088,7 +1088,7 @@ building_hydroponics_farm_4_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1146,7 +1146,7 @@ building_hydroponics_farm_5_a = {
 		minerals = @a_cost_5
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		planet = {
@@ -1165,7 +1165,7 @@ building_hydroponics_farm_5_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1262,7 +1262,7 @@ building_hydroponics_farm_1_f = {
 		"tech_eco_simulation"
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		NOT = {
@@ -1307,7 +1307,7 @@ building_hydroponics_farm_2_f = {
 		minerals = @f_cost_2
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1315,7 +1315,7 @@ building_hydroponics_farm_2_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1373,7 +1373,7 @@ building_hydroponics_farm_3_f = {
 		minerals = @f_cost_3
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1381,7 +1381,7 @@ building_hydroponics_farm_3_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1439,7 +1439,7 @@ building_hydroponics_farm_4_f = {
 		minerals = @f_cost_4
 	}
 
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1447,7 +1447,7 @@ building_hydroponics_farm_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1505,7 +1505,7 @@ building_hydroponics_farm_5_f = {
 		minerals = @f_cost_5
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		planet = {
@@ -1524,7 +1524,7 @@ building_hydroponics_farm_5_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1621,7 +1621,7 @@ building_hydroponics_farm_1_g = {
 		"tech_eco_simulation"
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		NOT = {
@@ -1666,7 +1666,7 @@ building_hydroponics_farm_2_g = {
 		minerals = @g_cost_2
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1674,7 +1674,7 @@ building_hydroponics_farm_2_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1732,7 +1732,7 @@ building_hydroponics_farm_3_g = {
 		minerals = @g_cost_3
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1740,7 +1740,7 @@ building_hydroponics_farm_3_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1798,7 +1798,7 @@ building_hydroponics_farm_4_g = {
 		minerals = @g_cost_4
 	}
 
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -1806,7 +1806,7 @@ building_hydroponics_farm_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1864,7 +1864,7 @@ building_hydroponics_farm_5_g = {
 		minerals = @g_cost_5
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		planet = {
@@ -1883,7 +1883,7 @@ building_hydroponics_farm_5_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1980,7 +1980,7 @@ building_hydroponics_farm_1_k = {
 		"tech_eco_simulation"
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		NOT = {
@@ -2025,7 +2025,7 @@ building_hydroponics_farm_2_k = {
 		minerals = @k_cost_2
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -2033,7 +2033,7 @@ building_hydroponics_farm_2_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -2091,7 +2091,7 @@ building_hydroponics_farm_3_k = {
 		minerals = @k_cost_3
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -2099,7 +2099,7 @@ building_hydroponics_farm_3_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -2157,7 +2157,7 @@ building_hydroponics_farm_4_k = {
 		minerals = @k_cost_4
 	}
 
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	destroy_if = {
 		exists = owner
@@ -2165,7 +2165,7 @@ building_hydroponics_farm_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -2223,7 +2223,7 @@ building_hydroponics_farm_5_k = {
 		minerals = @k_cost_5
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	
 
 	potential = {
 		planet = {
@@ -2242,7 +2242,7 @@ building_hydroponics_farm_5_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {

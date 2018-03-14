@@ -65,7 +65,7 @@ building_galactic_stock_exchange = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -120,7 +120,7 @@ building_probability_engine = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -173,7 +173,7 @@ building_galactic_stock_exchange_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -222,7 +222,7 @@ building_probability_engine_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -275,7 +275,7 @@ building_galactic_stock_exchange_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -324,7 +324,7 @@ building_probability_engine_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -377,7 +377,7 @@ building_galactic_stock_exchange_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -426,7 +426,7 @@ building_probability_engine_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -479,7 +479,7 @@ building_galactic_stock_exchange_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -528,7 +528,7 @@ building_probability_engine_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -581,7 +581,7 @@ building_galactic_stock_exchange_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {
@@ -630,7 +630,7 @@ building_probability_engine_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	country_modifier = {

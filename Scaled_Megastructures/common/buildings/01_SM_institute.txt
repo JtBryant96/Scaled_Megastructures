@@ -83,7 +83,7 @@ building_institute = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -145,7 +145,7 @@ building_singularity_core = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -205,7 +205,7 @@ building_institute_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -260,7 +260,7 @@ building_singularity_core_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -320,7 +320,7 @@ building_institute_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -375,7 +375,7 @@ building_singularity_core_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -435,7 +435,7 @@ building_institute_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -490,7 +490,7 @@ building_singularity_core_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -550,7 +550,7 @@ building_institute_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -605,7 +605,7 @@ building_singularity_core_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -665,7 +665,7 @@ building_institute_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {
@@ -720,7 +720,7 @@ building_singularity_core_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	prerequisites = {

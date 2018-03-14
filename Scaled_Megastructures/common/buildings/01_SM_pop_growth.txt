@@ -176,8 +176,8 @@ building_hospital = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -305,8 +305,8 @@ building_unit_assembly_plant = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -426,8 +426,8 @@ building_hospital_b = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -550,8 +550,8 @@ building_unit_assembly_plant_b = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -673,8 +673,8 @@ building_hospital_a = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -797,8 +797,8 @@ building_unit_assembly_plant_a = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -920,8 +920,8 @@ building_hospital_f = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -1044,8 +1044,8 @@ building_unit_assembly_plant_f = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -1167,8 +1167,8 @@ building_hospital_g = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -1291,8 +1291,8 @@ building_unit_assembly_plant_g = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -1414,8 +1414,8 @@ building_hospital_k = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	
@@ -1538,8 +1538,8 @@ building_unit_assembly_plant_k = {
 	
 	allow = {
 		AND = {
-			has_any_capital_2 = yes
-			has_20_pops = yes
+			SM_has_any_capital_2 = yes
+			SM_has_20_pops = yes
 		}
 	}
 	

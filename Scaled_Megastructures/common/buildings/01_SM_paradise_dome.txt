@@ -80,7 +80,7 @@ building_paradise_dome = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {
@@ -148,7 +148,7 @@ building_paradise_dome_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {
@@ -216,7 +216,7 @@ building_paradise_dome_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {
@@ -284,7 +284,7 @@ building_paradise_dome_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {
@@ -352,7 +352,7 @@ building_paradise_dome_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {
@@ -420,7 +420,7 @@ building_paradise_dome_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	ai_allow = {

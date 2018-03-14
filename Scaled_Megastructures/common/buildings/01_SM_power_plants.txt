@@ -155,7 +155,7 @@ building_power_plant_2 = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -189,7 +189,7 @@ building_power_plant_3 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -223,7 +223,7 @@ building_power_plant_4 = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -267,7 +267,7 @@ building_power_plant_5 = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -348,7 +348,7 @@ building_power_plant_2_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -384,7 +384,7 @@ building_power_plant_3_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -420,7 +420,7 @@ building_power_plant_4_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -460,7 +460,7 @@ building_power_plant_5_b = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -543,7 +543,7 @@ building_power_plant_2_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -579,7 +579,7 @@ building_power_plant_3_a = {
 	}
 		
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -615,7 +615,7 @@ building_power_plant_4_a = {
 	}
 
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -661,7 +661,7 @@ building_power_plant_5_a = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -744,7 +744,7 @@ building_power_plant_2_f = {
 	}
 
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -780,7 +780,7 @@ building_power_plant_3_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -816,7 +816,7 @@ building_power_plant_4_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -862,7 +862,7 @@ building_power_plant_5_f = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -945,7 +945,7 @@ building_power_plant_2_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -981,7 +981,7 @@ building_power_plant_3_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1017,7 +1017,7 @@ building_power_plant_4_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1063,7 +1063,7 @@ building_power_plant_5_g = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {
@@ -1146,7 +1146,7 @@ building_power_plant_2_k = {
 	}
 		
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	produced_resources = {
@@ -1182,7 +1182,7 @@ building_power_plant_3_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1218,7 +1218,7 @@ building_power_plant_4_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	produced_resources = {
@@ -1264,7 +1264,7 @@ building_power_plant_5_k = {
 	}	
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}
 	
 	produced_resources = {

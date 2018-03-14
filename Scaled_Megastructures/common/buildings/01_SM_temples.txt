@@ -217,7 +217,7 @@ building_holotemple = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -276,7 +276,7 @@ building_sacred_nexus = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -338,7 +338,7 @@ building_citadel_of_faith = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -472,7 +472,7 @@ building_holotemple_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -533,7 +533,7 @@ building_sacred_nexus_b = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -597,7 +597,7 @@ building_citadel_of_faith_b = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -731,7 +731,7 @@ building_holotemple_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -792,7 +792,7 @@ building_sacred_nexus_a = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -856,7 +856,7 @@ building_citadel_of_faith_a = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -990,7 +990,7 @@ building_holotemple_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -1051,7 +1051,7 @@ building_sacred_nexus_f = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -1115,7 +1115,7 @@ building_citadel_of_faith_f = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1249,7 +1249,7 @@ building_holotemple_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -1310,7 +1310,7 @@ building_sacred_nexus_g = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -1374,7 +1374,7 @@ building_citadel_of_faith_g = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {
@@ -1508,7 +1508,7 @@ building_holotemple_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 	upgrades = {
@@ -1569,7 +1569,7 @@ building_sacred_nexus_k = {
 	}
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	upgrades = {
@@ -1633,7 +1633,7 @@ building_citadel_of_faith_k = {
 	}
 	
 	allow = {
-		has_any_capital_3 = yes
+		SM_has_any_capital_3 = yes
 	}	
 	
 	prerequisites = {

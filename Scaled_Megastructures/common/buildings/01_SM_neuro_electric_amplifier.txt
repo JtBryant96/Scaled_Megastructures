@@ -68,7 +68,7 @@ building_neuro_electric_amplifier = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {
@@ -147,7 +147,7 @@ building_neuro_electric_amplifier_b = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {
@@ -226,7 +226,7 @@ building_neuro_electric_amplifier_a = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {
@@ -305,7 +305,7 @@ building_neuro_electric_amplifier_f = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {
@@ -384,7 +384,7 @@ building_neuro_electric_amplifier_g = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {
@@ -463,7 +463,7 @@ building_neuro_electric_amplifier_k = {
 	}
 	
 	allow = {
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 
 	prerequisites = {

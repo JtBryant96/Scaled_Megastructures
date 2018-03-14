@@ -82,7 +82,7 @@ building_slave_processing = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 
@@ -168,7 +168,7 @@ building_slave_processing_b = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 
@@ -254,7 +254,7 @@ building_slave_processing_a = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 
@@ -340,7 +340,7 @@ building_slave_processing_f = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 
@@ -426,7 +426,7 @@ building_slave_processing_g = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 
@@ -512,7 +512,7 @@ building_slave_processing_k = {
 				}
 			}
 		}
-		has_any_capital_1 = yes
+		SM_has_any_capital_1 = yes
 	}
 	
 

@@ -57,7 +57,7 @@ building_clone_vats = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {
@@ -135,7 +135,7 @@ building_clone_vats_b = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {
@@ -213,7 +213,7 @@ building_clone_vats_a = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {
@@ -291,7 +291,7 @@ building_clone_vats_f = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {
@@ -369,7 +369,7 @@ building_clone_vats_g = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {
@@ -446,7 +446,7 @@ building_clone_vats_k = {
 	}	
 	
 	allow = {
-		has_any_capital_2 = yes
+		SM_has_any_capital_2 = yes
 	}
 	
 	prerequisites = {

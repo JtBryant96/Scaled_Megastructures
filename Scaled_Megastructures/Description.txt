@@ -1,0 +1,132 @@
+This mod is an attempt to (somewhat) accurately scale Dyson Spheres and Ring Worlds based on the stars they're built around, and have them actually be useful.
+
+[b]Dyson Spheres now have the following values:[/b]
+[table]
+	[tr]
+		[th]Star Class[/th]
+		[th]Output[/th]
+		[th]Build Cost[/th]
+		[th]Build Time[/th]
+	[/tr]
+	[tr]
+		[td]B[/td]
+		[td]80000[/td]
+		[td]600000[/td]
+		[td]270000[/td]
+	[/tr]
+	[tr]
+		[td]A[/td]
+		[td]10000[/td]
+		[td]140000[/td]
+		[td]63000[/td]
+	[/tr]
+	[tr]
+		[td]F[/td]
+		[td]4000[/td]
+		[td]60000[/td]
+		[td]27000[/td]
+	[/tr]
+	[tr]
+		[td]G[/td]
+		[td]2000[/td]
+		[td]40000[/td]
+		[td]18000[/td]
+	[/tr]
+	[tr]
+		[td]K[/td]
+		[td]600[/td]
+		[td]16000[/td]
+		[td]7200[/td]
+	[/tr]
+	[tr]
+		[td]M[/td]
+		[td]40[/td]
+		[td]1600[/td]
+		[td]720[/td]
+	[/tr]
+[/table]
+
+[b]Ring Worlds now have the following values:[/b]
+[table]
+	[tr]
+		[th]Star Class[/th]
+		[th]Multiplier[/th]
+		[th]Build Cost[/th]
+		[th]Build Time[/th]
+	[/tr]
+	[tr]
+		[td]B[/td]
+		[td]400[/td]
+		[td]500000[/td]
+		[td]225000[/td]
+	[/tr]
+	[tr]
+		[td]A[/td]
+		[td]80[/td]
+		[td]120000[/td]
+		[td]54000[/td]
+	[/tr]
+	[tr]
+		[td]F[/td]
+		[td]30[/td]
+		[td]50000[/td]
+		[td]22500[/td]
+	[/tr]
+	[tr]
+		[td]G[/td]
+		[td]20[/td]
+		[td]40000[/td]
+		[td]18000[/td]
+	[/tr]
+	[tr]
+		[td]K[/td]
+		[td]10[/td]
+		[td]25000[/td]
+		[td]11250[/td]
+	[/tr]
+	[tr]
+		[td]M[/td]
+		[td]1[/td]
+		[td]4000[/td]
+		[td]1800[/td]
+	[/tr]
+[/table]
+
+Multiplier is the value the mod multiplies almost all building and pop values by to simulate the planet being larger.
+
+[b]List of other changes:[/b]
+
+Buildings
+[list]
+[*]New building Planetary Builders Association +10% planet building speed, upgrades to Galactic Builders Association, requires Planetary Builders Association tech
+[*]New building Galactic Builders Association +10% empire building and megastructure building speed, +1000 energy and mineral storage, requires 20 pops (to avoid it being too spammable), unlocked with megastructures tech
+[*]Renamed Gene Clinic to Planetary Immigration Office
+[*]Renamed Cyto-Revitalization Center to Planetary Emigration Office +20% planet growth rate changed to +10% empire growth rate, requires 20 pops
+[*]Unit Assembly Plant +20% planet robot build speed changed to +10% empire robot build speed, requires 20 pops
+[*]Renamed Mines built on ringworlds to Interstellar Mining Depot
+[/list]
+Ascension perks
+[list]
+[*]Removed tier requirements for Master Builders, Galactic Wonders, and The Circle of Life (to allow you to build the smaller structures earlier in the game)
+[*]Removed tech requirements for Master Builders
+[*]Master Builders +20% megastructure building speed changed to -10% megastructure building cost
+[*]Removed Voidborne (and habitats)
+[/list]
+Game Mechanics
+[list]
+[*]Disabled resettlement and migration for balance (policy and species right were left in to please/anger factions)
+[/list]
+
+[b]Known issues:[/b]
+[list]
+[*]Robots are not balanced for higher tier ringworlds, most of modifires I used for organic pops don't have robot equivalants.
+[/list]
+
+[b]Plans:[/b]
+[list]
+[*]Do something with the science nexus since I can't figure out a good way to have it scale.
+[*]Have the higher tier ringworlds increase naval & starbase cap, and tradition and tech costs more.
+[*]Something to use the insane amount of resources the class B structures create.
+[*]Compatibility patches for major mods.
+[/list]
+Do to the large number of changes in this mod I'm clasifing it as a beta, so I can get some balance feedback and bug reports.
